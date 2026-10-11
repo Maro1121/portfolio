@@ -1,380 +1,596 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#722F37">
-    <meta name="description" content="Portfolio of Marwan Ibrahim, Mechatronics Technologist focused on robotics, ROS 2, embedded systems, and automotive model-based development.">
+    <meta name="description" content="Marwan Ibrahim — Mechatronics Technologist specializing in embedded systems, model-based design, automotive control, and robotics.">
+    <meta name="author" content="Marwan Ibrahim">
     <title>Marwan Ibrahim | Mechatronics Technologist</title>
 
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #722F37;
-            --primary-dark: #4e2027;
-            --accent: #A38A58;
-            --background: #F7F5EE;
-            --text: #4E342E;
-            --muted: #76635c;
-            --card: #ffffff;
-            --border: #e8e0d5;
-            --shadow: 0 12px 32px rgba(78, 52, 46, .08);
+            --primary: #641e32;
+            --primary-dark: #421322;
+            --primary-light: #87334b;
+            --gold: #d6ad60;
+            --gold-light: #f0d89d;
+            --background: #f8f7f5;
+            --surface: #ffffff;
+            --text: #29252a;
+            --muted: #706a70;
+            --border: #e9e1e3;
+            --shadow: 0 12px 35px rgba(50, 20, 32, 0.09);
+            --radius: 16px;
         }
 
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: 85px;
         }
 
         body {
-            margin: 0;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
+            font-family: 'Poppins', sans-serif;
             background: var(--background);
             color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
         a {
+            text-decoration: none;
             color: inherit;
         }
 
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            top: 0;
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1160px, 90%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 95px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-heading .eyebrow {
+            display: inline-block;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            color: var(--primary-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .gold-line {
+            width: 65px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 20px;
+            margin: 18px auto 0;
+        }
+
+        /* Navigation */
+
+        header {
+            position: fixed;
+            inset: 0 0 auto;
             z-index: 1000;
-            padding: 10px 14px;
-            background: white;
-            color: var(--primary);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
         }
 
-        .skip-link:focus {
-            left: 10px;
-            top: 10px;
-        }
-
-        .site-nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(78, 32, 39, .97);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,.12);
-        }
-
-        .nav-inner {
-            max-width: 1120px;
-            margin: auto;
-            padding: 0 22px;
-            min-height: 58px;
+        .navbar {
+            min-height: 76px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 18px;
+            align-items: center;
+            gap: 25px;
         }
 
-        .brand {
-            color: #fff;
-            font-weight: 750;
-            text-decoration: none;
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
             white-space: nowrap;
         }
 
+        .logo span {
+            color: var(--gold);
+        }
+
         .nav-links {
+            list-style: none;
             display: flex;
             align-items: center;
-            gap: 22px;
-            flex-wrap: wrap;
+            gap: 27px;
         }
 
         .nav-links a {
-            color: #f7f5ee;
-            text-decoration: none;
-            font-size: .92rem;
-            transition: color .2s ease;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: #494148;
+            transition: color 0.25s ease;
         }
 
-        .nav-links a:hover,
-        .nav-links a:focus-visible {
-            color: #e1c98e;
+        .nav-links a:hover {
+            color: var(--primary-light);
         }
 
-        header.hero {
-            background:
-                radial-gradient(circle at 80% 20%, rgba(163,138,88,.2), transparent 34%),
-                linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: #F7F5EE;
-            padding: 76px 24px 94px;
+        .nav-contact {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 8px;
         }
 
-        .hero-inner {
-            max-width: 1060px;
-            margin: auto;
+        .nav-contact:hover {
+            background: var(--primary-dark);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: transparent;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 690px;
+            padding: 135px 0 85px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 42px;
+            color: white;
+            background:
+                radial-gradient(circle at 78% 22%, rgba(214, 173, 96, 0.16), transparent 26%),
+                linear-gradient(120deg, #35101e 0%, #641e32 55%, #7a2b42 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .profile-img {
-            width: 176px;
-            height: 176px;
-            flex: 0 0 176px;
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            border: 1px solid rgba(240, 216, 157, 0.2);
             border-radius: 50%;
-            border: 5px solid var(--accent);
-            object-fit: cover;
-            box-shadow: 0 12px 28px rgba(0,0,0,.25);
-            background: rgba(255,255,255,.08);
+            right: -130px;
+            bottom: -200px;
         }
 
-        .hero h1 {
-            margin: 0;
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            line-height: 1.12;
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(240, 216, 157, 0.12);
+            border-radius: 50%;
+            right: -65px;
+            bottom: -135px;
         }
 
-        .hero h2 {
-            color: #e1c98e;
-            font-size: 1.35rem;
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.35fr 0.75fr;
+            align-items: center;
+            gap: 65px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text .greeting {
+            color: var(--gold-light);
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4.7rem);
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -1.8px;
+            margin-bottom: 16px;
+        }
+
+        .hero-text h2 {
+            font-size: clamp(1.2rem, 2.6vw, 1.75rem);
+            color: var(--gold-light);
             font-weight: 500;
-            margin: 12px 0;
+            margin-bottom: 23px;
         }
 
-        .hero-summary {
-            max-width: 660px;
-            color: #f0e8df;
-            margin: 14px 0 22px;
-            font-size: 1.05rem;
+        .hero-text p {
+            max-width: 650px;
+            color: #f0e6e9;
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 30px;
         }
 
-        .hero-actions {
+        .hero-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin: 22px 0;
+            gap: 14px;
+            margin-bottom: 32px;
         }
 
-        .button {
+        .btn {
             display: inline-flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             gap: 9px;
-            padding: 11px 17px;
-            border-radius: 7px;
-            font-weight: 700;
-            text-decoration: none;
-            border: 1px solid transparent;
-            transition: .2s ease;
+            padding: 13px 23px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.25s ease, background 0.25s ease;
         }
 
-        .button-primary {
-            background: var(--accent);
-            color: #241b13;
+        .btn:hover {
+            transform: translateY(-3px);
         }
 
-        .button-primary:hover {
-            background: #c1a66c;
-            transform: translateY(-2px);
+        .btn-gold {
+            background: var(--gold);
+            color: #2c1a10;
         }
 
-        .button-outline {
-            border-color: rgba(255,255,255,.65);
+        .btn-gold:hover {
+            background: var(--gold-light);
+        }
+
+        .btn-outline {
             color: white;
+            border-color: rgba(255, 255, 255, 0.65);
         }
 
-        .button-outline:hover {
-            background: rgba(255,255,255,.1);
-            transform: translateY(-2px);
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .social-links {
             display: flex;
-            gap: 17px;
+            align-items: center;
+            gap: 12px;
         }
 
         .social-links a {
-            color: #f7f5ee;
-            font-size: 1.45rem;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: white;
+            transition: all 0.25s ease;
         }
 
         .social-links a:hover {
-            color: #e1c98e;
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
         }
 
-        main {
-            max-width: 1120px;
-            margin: -42px auto 0;
-            padding: 0 22px;
-            position: relative;
+        .hero-image-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        section {
-            background: var(--card);
-            padding: clamp(24px, 4vw, 40px);
-            margin-bottom: 28px;
-            border-radius: 14px;
-            box-shadow: var(--shadow);
+        .hero-image-border {
+            width: min(350px, 100%);
+            aspect-ratio: 4 / 5;
+            padding: 9px;
+            border: 2px solid rgba(240, 216, 157, 0.7);
+            border-radius: 180px 180px 28px 28px;
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.24);
         }
 
-        .section-heading {
-            margin-bottom: 22px;
+        .hero-image-border img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 170px 170px 20px 20px;
         }
 
-        .section-title {
-            color: var(--primary);
-            border-bottom: 3px solid var(--accent);
-            display: inline-block;
-            padding-bottom: 7px;
-            margin: 0;
-            font-size: clamp(1.45rem, 3vw, 1.85rem);
-        }
-
-        .section-intro {
-            max-width: 850px;
-            color: var(--muted);
-            margin: 14px 0 0;
-        }
+        /* About */
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 28px;
-            align-items: start;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 55px;
+            align-items: center;
         }
 
-        .callout {
-            background: var(--background);
-            border-left: 4px solid var(--accent);
-            border-radius: 8px;
-            padding: 18px 20px;
-        }
-
-        .callout strong {
-            color: var(--primary);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .quick-facts {
-            display: grid;
-            gap: 12px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .quick-facts li {
+        .about-visual {
+            min-height: 390px;
+            position: relative;
             display: flex;
-            gap: 10px;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
         }
 
-        .quick-facts i {
-            color: var(--accent);
-            margin-top: 5px;
-            width: 18px;
+        .about-visual-card {
+            width: 90%;
+            min-height: 330px;
+            padding: 35px;
+            border-radius: var(--radius);
+            background: linear-gradient(145deg, var(--primary-dark), var(--primary));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual-card::after {
+            content: "";
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border: 1px solid rgba(240, 216, 157, 0.25);
+            border-radius: 50%;
+            right: -65px;
+            bottom: -65px;
+        }
+
+        .about-visual-card > i {
+            color: var(--gold);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .about-visual-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.55rem;
+            margin-bottom: 12px;
+        }
+
+        .about-visual-card p {
+            color: #f0e6e9;
+            font-size: 0.94rem;
+        }
+
+        .about-content h3 {
+            color: var(--primary-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            margin-bottom: 18px;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 17px;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 13px;
+            margin-top: 25px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 14px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .highlight-item i {
+            color: var(--primary-light);
+            font-size: 1.1rem;
+        }
+
+        /* Skills */
+
+        .skills-section {
+            background: #f0ebec;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
         }
 
-        .skill-box {
-            padding: 20px;
-            background: var(--background);
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
+        .skill-card {
+            background: white;
+            padding: 28px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .skill-box h3 {
-            margin: 0 0 8px;
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            background: #f5e9ec;
             color: var(--primary);
-            font-size: 1.1rem;
+            border-radius: 13px;
+            font-size: 1.45rem;
+            margin-bottom: 19px;
         }
 
-        .skill-box p {
-            margin: 0;
+        .skill-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            font-size: 1.08rem;
+            margin-bottom: 14px;
         }
 
-        .project-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .project-filter {
+        .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin: 20px 0 8px;
+        }
+
+        .skill-tags span {
+            padding: 6px 10px;
+            border-radius: 6px;
+            background: #f7f4f4;
+            color: #62545a;
+            font-size: 0.75rem;
+        }
+
+        /* Projects */
+
+        .project-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 34px;
         }
 
         .filter-btn {
-            font: inherit;
-            font-size: .88rem;
-            border: 1px solid var(--border);
-            background: #fff;
-            color: var(--text);
-            padding: 8px 13px;
-            border-radius: 999px;
+            padding: 9px 17px;
+            border: 1px solid #ded2d6;
+            border-radius: 30px;
+            background: white;
+            color: #5f5157;
+            font-size: 0.83rem;
             cursor: pointer;
-            transition: .2s ease;
+            transition: all 0.25s ease;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
             background: var(--primary);
-            color: #fff;
+            color: white;
             border-color: var(--primary);
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-            margin-top: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            align-items: stretch;
         }
 
         .project-card {
-            min-width: 0;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
-            background: var(--card);
+            background: white;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 5px 16px rgba(78,52,46,.05);
-            transition: transform .25s, box-shadow .25s;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(40, 20, 28, 0.035);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 13px 28px rgba(78,52,46,.12);
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
         }
 
-        .project-card[hidden] {
+        .project-card.hidden {
             display: none;
         }
 
-        .project-img {
-            display: block;
+        .project-image {
+            height: 205px;
+            background: #e9e1e3;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
-            background: #ece7dd;
-            border-bottom: 3px solid var(--accent);
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.06);
+        }
+
+        .project-category {
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            padding: 6px 11px;
+            background: rgba(255, 255, 255, 0.94);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
         }
 
         .project-content {
@@ -385,166 +601,513 @@
         }
 
         .project-content h3 {
-            color: var(--primary);
-            font-size: 1.23rem;
-            line-height: 1.35;
-            margin: 0 0 10px;
-        }
-
-        .project-type {
-            color: var(--muted);
-            font-size: .83rem;
-            font-weight: 700;
-            margin: 0 0 10px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-            margin: 0 0 15px;
-        }
-
-        .tags span {
-            font-size: .76rem;
-            background: #f1ece2;
-            color: #674a31;
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-weight: 650;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            font-size: 1.08rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
         }
 
         .project-content p {
-            margin: 0;
-            font-size: .95rem;
+            color: var(--muted);
+            font-size: 0.87rem;
+            margin-bottom: 18px;
+            flex: 1;
         }
 
-        .project-note {
-            color: var(--muted);
-            font-size: .88rem;
-            margin-top: 18px;
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: auto;
+        }
+
+        .project-tech span {
+            background: #f5e9ec;
+            color: var(--primary);
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        /* Experience */
+
+        .experience-section {
+            background: #f0ebec;
+        }
+
+        .experience-layout {
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 7px;
+            bottom: 8px;
+            width: 2px;
+            background: #d8bdc5;
         }
 
         .timeline-item {
-            margin-bottom: 26px;
-            padding-left: 22px;
-            border-left: 3px solid var(--accent);
             position: relative;
+            padding: 0 0 35px 18px;
         }
 
         .timeline-item:last-child {
-            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .timeline-item::before {
-            content: '';
+            content: "";
             position: absolute;
-            left: -10px;
-            top: 5px;
-            width: 15px;
-            height: 15px;
+            width: 13px;
+            height: 13px;
             border-radius: 50%;
-            background: var(--accent);
-            border: 3px solid white;
+            background: var(--gold);
+            border: 3px solid var(--primary);
+            left: -29px;
+            top: 5px;
+            z-index: 1;
         }
 
-        .timeline-item h3,
-        .timeline-item h4 {
-            margin: 0 0 4px;
-            color: var(--primary);
-            font-size: 1.12rem;
-        }
-
-        .date {
-            display: block;
-            color: #8D6E63;
-            font-size: .9rem;
+        .timeline-date {
+            color: var(--primary-light);
+            font-size: 0.78rem;
             font-weight: 700;
+            letter-spacing: 0.4px;
+            margin-bottom: 7px;
+        }
+
+        .timeline-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            font-size: 1.13rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h4 {
+            color: #66565e;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p,
+        .timeline-item li {
+            color: var(--muted);
+            font-size: 0.86rem;
+        }
+
+        .timeline-item ul {
+            padding-left: 19px;
+            margin-top: 8px;
+        }
+
+        .timeline-item li {
+            margin-bottom: 6px;
+        }
+
+        .experience-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        .experience-image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .experience-image-caption {
+            padding: 22px;
+        }
+
+        .experience-image-caption h3 {
+            color: var(--primary-dark);
+            font-family: 'Montserrat', sans-serif;
             margin-bottom: 8px;
         }
 
-        .experience-img {
-            width: 100%;
-            max-width: 520px;
-            height: auto;
-            border-radius: 8px;
-            margin-top: 12px;
+        .experience-image-caption p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* Contact */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 35px;
+            align-items: stretch;
+        }
+
+        .contact-info {
+            background: linear-gradient(145deg, var(--primary-dark), var(--primary));
+            color: white;
+            border-radius: var(--radius);
+            padding: 35px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.55rem;
+            margin-bottom: 13px;
+        }
+
+        .contact-info > p {
+            color: #e7d8dd;
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            margin-bottom: 22px;
+        }
+
+        .contact-detail > i {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            color: var(--gold-light);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-detail h4 {
+            font-size: 0.86rem;
+            margin-bottom: 3px;
+        }
+
+        .contact-detail p,
+        .contact-detail a {
+            color: #e7d8dd;
+            font-size: 0.83rem;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-detail a:hover {
+            color: var(--gold-light);
+        }
+
+        .contact-form {
+            padding: 35px;
+            background: white;
             border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
 
-        .contact-panel {
-            background: var(--primary);
-            color: #fff;
-            text-align: center;
+        .contact-form h3 {
+            color: var(--primary-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 23px;
         }
 
-        .contact-panel .section-title {
-            color: #fff;
-            border-color: var(--accent);
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
         }
 
-        .contact-panel p {
-            color: #f0e8df;
-            max-width: 650px;
-            margin: 16px auto 22px;
+        .form-group {
+            margin-bottom: 17px;
         }
 
-        .contact-panel .button-outline {
-            border-color: #e1c98e;
+        .form-group label {
+            display: block;
+            color: #51454b;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 7px;
         }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            background: #fcfafb;
+            border: 1px solid #e3d9dd;
+            border-radius: 8px;
+            outline: none;
+            color: var(--text);
+            font-size: 0.87rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(100, 30, 50, 0.08);
+        }
+
+        .form-group textarea {
+            min-height: 135px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            border: none;
+        }
+
+        .form-note {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+        /* Footer */
 
         footer {
-            text-align: center;
-            padding: 26px 20px;
-            background: var(--primary-dark);
-            color: #f7f5ee;
+            background: #2e101b;
+            color: #e8dce0;
+            padding: 27px 0;
         }
 
-        footer p {
-            margin: 0;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
 
-        @media (max-width: 760px) {
-            .nav-inner {
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 12px 18px;
-                gap: 8px;
+        .footer-content p {
+            font-size: 0.8rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            color: #e8dce0;
+            transition: color 0.2s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--gold-light);
+        }
+
+        /* Back to top */
+
+        .back-to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            background: var(--gold);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s ease;
+            z-index: 900;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 1000px) {
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 0.81rem;
+            }
+
+            .hero-content {
+                gap: 35px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 780px) {
+            .section {
+                padding: 75px 0;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             .nav-links {
-                gap: 12px;
-            }
-
-            .hero-inner {
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                display: none;
                 flex-direction: column;
-                text-align: center;
-                gap: 22px;
+                align-items: stretch;
+                gap: 0;
+                padding: 12px 5% 20px;
+                background: white;
+                box-shadow: 0 15px 20px rgba(0, 0, 0, 0.08);
             }
 
-            .hero-actions,
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 12px 5px;
+                font-size: 0.92rem;
+            }
+
+            .nav-contact {
+                display: inline-block !important;
+                text-align: center;
+                margin-top: 5px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 125px 0 75px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-image-wrap {
+                order: 1;
+            }
+
+            .hero-image-border {
+                width: 235px;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons,
             .social-links {
                 justify-content: center;
             }
 
             .about-grid,
+            .experience-layout,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-visual {
+                min-height: 300px;
+            }
+
+            .about-visual-card {
+                min-height: 280px;
+            }
+
+            .experience-image {
+                max-width: 560px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .container {
+                width: 91%;
+            }
+
+            .hero-text h1 {
+                font-size: 2.55rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-text h2 {
+                font-size: 1.22rem;
+            }
+
+            .hero-text p {
+                font-size: 0.91rem;
+            }
+
+            .btn {
+                padding: 12px 16px;
+                font-size: 0.82rem;
+            }
+
             .skills-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            main {
-                padding: 0 13px;
+            .about-highlights {
+                grid-template-columns: 1fr;
             }
 
-            header.hero {
-                padding: 55px 20px 78px;
+            .project-image {
+                height: 225px;
             }
 
-            .profile-img {
-                width: 150px;
-                height: 150px;
-                flex-basis: 150px;
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-heading {
+                margin-bottom: 35px;
             }
         }
 
@@ -556,538 +1119,775 @@
             *,
             *::before,
             *::after {
-                animation-duration: .01ms !important;
-                transition-duration: .01ms !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 
 <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <nav class="site-nav" aria-label="Main navigation">
-        <div class="nav-inner">
-            <a class="brand" href="#home">Marwan Ibrahim</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="#home" class="logo">Marwan<span>.</span></a>
 
-    <header class="hero" id="home">
-        <div class="hero-inner">
-            <img
-                src="profile.jpg"
-                alt="Portrait of Marwan Ibrahim"
-                class="profile-img"
-                onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=Your+Photo'"
-                data-aos="zoom-in"
-            >
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <i class="fas fa-bars"></i>
+            </button>
 
-            <div class="hero-content" data-aos="fade-left">
-                <h1>Marwan Ibrahim</h1>
-                <h2>Mechatronics Technologist</h2>
-
-                <p class="hero-summary">
-                    Robotics and ROS 2 · Embedded Systems · Automotive Model-Based Development
-                </p>
-
-                <p class="hero-summary">
-                    I build and integrate control-oriented systems across robotics,
-                    microcontrollers, sensors, and automotive simulation—from system
-                    modeling and hardware integration to testing and validation.
-                </p>
-
-                <div class="hero-actions">
-                    <a class="button button-primary" href="#projects">
-                        <i class="fas fa-code"></i> Explore Projects
-                    </a>
-                    <a class="button button-outline" href="mailto:marwansaad672@gmail.com">
-                        <i class="fas fa-envelope"></i> Contact Me
-                    </a>
-                </div>
-
-                <div class="social-links">
-                    <a
-                        href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn profile"
-                        title="LinkedIn"
-                    >
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a
-                        href="mailto:marwansaad672@gmail.com"
-                        aria-label="Email Marwan"
-                        title="Email"
-                    >
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact" class="nav-contact">Contact Me</a></li>
+            </ul>
         </div>
     </header>
 
-    <main id="main-content">
-        <section id="about" data-aos="fade-up">
-            <div class="section-heading">
-                <h2 class="section-title">
-                    <i class="fas fa-user-tie"></i> About Me
-                </h2>
-            </div>
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div class="hero-text" data-aos="fade-right">
+                    <div class="greeting">Hello, I'm</div>
 
-            <div class="about-grid">
-                <div>
+                    <h1>Marwan Ibrahim</h1>
+
+                    <h2>Mechatronics Technologist</h2>
+
                     <p>
-                        I am a Mechatronics Technologist focused on robotics,
-                        embedded systems, and automotive Model-Based Development
-                        (MBD). My work combines software, electronics, sensing,
-                        and control to build practical mechatronic systems.
+                        I work across embedded systems, model-based design, automotive
+                        control systems, and robotics. I enjoy turning engineering
+                        concepts into practical systems through simulation, control
+                        development, and hands-on technical projects.
                     </p>
-                    <p>
-                        My experience includes ROS 2 robot modeling and simulation,
-                        microcontroller-based control systems, MATLAB/Simulink and
-                        Stateflow development, and MIL/SIL verification. I have also
-                        taken technical leadership responsibilities in an electric
-                        systems team for student racing.
-                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-gold">
+                            <i class="fas fa-code"></i> Explore My Projects
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i> Get In Touch
+                        </a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="mailto:marwansaad672@gmail.com"
+                           aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <aside class="callout">
-                    <strong>Areas I am interested in</strong>
-                    <ul class="quick-facts">
-                        <li>
-                            <i class="fas fa-robot"></i>
-                            <span>Robotics, ROS 2, URDF and Gazebo simulation</span>
-                        </li>
-                        <li>
+                <div class="hero-image-wrap" data-aos="fade-left">
+                    <div class="hero-image-border">
+                        <img src="profile.jpg"
+                             alt="Portrait of Marwan Ibrahim"
+                             onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(145deg,#87334b,#35101e)';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="eyebrow">About Me</span>
+                    <h2>Engineering Ideas Into Reality</h2>
+                    <p>
+                        A practical approach to mechatronics, control, and intelligent systems.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-visual" data-aos="fade-right">
+                        <div class="about-visual-card">
+                            <i class="fas fa-gears"></i>
+                            <h3>Design. Simulate. Develop.</h3>
+                            <p>
+                                Combining mechanical, electrical, and software concepts
+                                to build and understand integrated engineering systems.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-content" data-aos="fade-left">
+                        <h3>Mechatronics Technologist</h3>
+
+                        <p>
+                            My technical interests include embedded systems, model-based
+                            development, automotive control, and robotics. I use
+                            engineering tools and simulation environments to develop,
+                            evaluate, and improve system designs.
+                        </p>
+
+                        <p>
+                            My projects include vehicle control features, battery
+                            management concepts, ROS 2 robot simulation, and a
+                            renewable-energy-powered water purification system.
+                            I also value teamwork, technical leadership, and continuous
+                            learning through practical engineering work.
+                        </p>
+
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>Embedded Systems</span>
+                            </div>
+
+                            <div class="highlight-item">
+                                <i class="fas fa-car"></i>
+                                <span>Automotive Control</span>
+                            </div>
+
+                            <div class="highlight-item">
+                                <i class="fas fa-robot"></i>
+                                <span>Robotics & ROS 2</span>
+                            </div>
+
+                            <div class="highlight-item">
+                                <i class="fas fa-diagram-project"></i>
+                                <span>Model-Based Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section skills-section" id="skills">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="eyebrow">Technical Expertise</span>
+                    <h2>Skills & Technologies</h2>
+                    <p>
+                        Tools and technical areas relevant to my engineering projects.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card" data-aos="fade-up">
+                        <div class="skill-icon">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <h3>Automotive Control & MBD</h3>
+                        <div class="skill-tags">
+                            <span>MATLAB</span>
+                            <span>Simulink</span>
+                            <span>Stateflow</span>
+                            <span>Vehicle Dynamics</span>
+                            <span>Model-Based Design</span>
+                            <span>MIL Testing</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card" data-aos="fade-up" data-aos-delay="80">
+                        <div class="skill-icon">
                             <i class="fas fa-microchip"></i>
-                            <span>Embedded C/C++, microcontrollers and sensor integration</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-car"></i>
-                            <span>Automotive MBD, Stateflow, MIL/SIL and AUTOSAR Classic</span>
-                        </li>
-                    </ul>
-                </aside>
-            </div>
-        </section>
-
-        <section id="skills" data-aos="fade-up">
-            <div class="section-heading">
-                <h2 class="section-title">
-                    <i class="fas fa-laptop-code"></i> Technical Skills
-                </h2>
-                <p class="section-intro">
-                    Core tools and technologies I have worked with across projects and training.
-                </p>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-box">
-                    <h3><i class="fas fa-robot"></i> ROS 2 &amp; Robotics</h3>
-                    <p>
-                        ROS 2, Linux, Python/OOP, URDF, Gazebo Sim, RViz,
-                        robot-state publishing, joint states, LiDAR, and mobile-robot simulation.
-                    </p>
-                </div>
-
-                <div class="skill-box">
-                    <h3><i class="fas fa-microchip"></i> Embedded Systems</h3>
-                    <p>
-                        Embedded C/C++, ESP32, STM32, ATmega328P, ATmega32,
-                        microcontroller programming, sensor/actuator interfacing,
-                        and hardware-software integration.
-                    </p>
-                </div>
-
-                <div class="skill-box">
-                    <h3><i class="fas fa-project-diagram"></i> Automotive MBD</h3>
-                    <p>
-                        MATLAB/Simulink, Stateflow, Embedded Coder, MIL/SIL testing,
-                        control-system modeling, AUTOSAR Classic concepts, BMS,
-                        and ADAS control logic.
-                    </p>
-                </div>
-
-                <div class="skill-box">
-                    <h3><i class="fas fa-bolt"></i> Electronics &amp; Communication</h3>
-                    <p>
-                        KiCad, Proteus, PCB design, analog/digital electronics,
-                        power electronics, UART, SPI, I2C, CAN fundamentals,
-                        Wi-Fi, Bluetooth, and NRF24L01.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="project-toolbar">
-                <div class="section-heading">
-                    <h2 class="section-title">
-                        <i class="fas fa-cogs"></i> Featured Projects
-                    </h2>
-                    <p class="section-intro">
-                        A selection of graduation, robotics, embedded, and automotive
-                        control projects. Use the filters to explore each area.
-                    </p>
-                </div>
-            </div>
-
-            <div class="project-filter" role="group" aria-label="Filter projects">
-                <button class="filter-btn active" type="button"
-                        data-filter="all" aria-pressed="true">All Projects</button>
-                <button class="filter-btn" type="button"
-                        data-filter="embedded" aria-pressed="false">Embedded Systems</button>
-                <button class="filter-btn" type="button"
-                        data-filter="robotics" aria-pressed="false">Robotics</button>
-                <button class="filter-btn" type="button"
-                        data-filter="automotive" aria-pressed="false">Automotive MBD</button>
-            </div>
-
-            <div class="projects-grid">
-                <article class="project-card" data-category="embedded">
-                    <img src="project1.jpg" alt="Portable water purification system"
-                         class="project-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Graduation+Project'">
-                    <div class="project-content">
-                        <h3>Portable Water Purification System for Rural Areas</h3>
-                        <p class="project-type">Graduation Project · Embedded Systems &amp; IoT Team Lead</p>
-                        <div class="tags">
-                            <span>ESP32</span><span>Embedded Control</span>
-                            <span>Sensors</span><span>IoT</span><span>Renewable Energy</span>
                         </div>
-                        <p>
-                            Led the embedded systems and IoT work for an automated
-                            reverse-osmosis water purification system. Integrated pH,
-                            TDS, water-level, pressure, and battery monitoring with
-                            pumps and solenoid valves; developed control logic and
-                            mobile IoT monitoring; and integrated custom control
-                            hardware with solar-powered battery charging.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="project-card" data-category="automotive">
-                    <img src="project2.jpg" alt="Adaptive cruise control and emergency braking model"
-                         class="project-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=ACC+with+AEB'">
-                    <div class="project-content">
-                        <h3>Adaptive Cruise Control (ACC) with Autonomous Emergency Braking</h3>
-                        <p class="project-type">Automotive Model-Based Development · ADAS</p>
-                        <div class="tags">
-                            <span>MATLAB</span><span>Simulink</span><span>Stateflow</span>
-                            <span>MIL</span><span>Embedded Coder</span>
-                        </div>
-                        <p>
-                            Developed a longitudinal-control model with an ego-vehicle
-                            dynamics plant and radar model for relative distance and
-                            velocity. Implemented speed and distance control using
-                            dynamic headway logic, with Stateflow modes for cruise
-                            control, target-vehicle following, and emergency braking.
-                            Evaluated behavior through MIL traffic scenarios and
-                            generated ANSI C code using the Embedded Coder ERT target.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="project-card" data-category="automotive">
-                    <img src="project3.jpg" alt="Electric vehicle battery management system"
-                         class="project-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Battery+Management+System'">
-                    <div class="project-content">
-                        <h3>Battery Management System for Electric Vehicles</h3>
-                        <p class="project-type">Automotive Model-Based Development</p>
-                        <div class="tags">
-                            <span>Simulink</span><span>Stateflow</span>
-                            <span>SOC Estimation</span><span>MIL/SIL</span>
+                        <h3>Embedded Systems</h3>
+                        <div class="skill-tags">
+                            <span>Embedded C</span>
+                            <span>C Programming</span>
+                            <span>Arduino</span>
                             <span>Embedded Coder</span>
+                            <span>Code Generation</span>
                         </div>
-                        <p>
-                            Built a multi-rate BMS model with initialization, standby,
-                            charging, driving, and fault modes. Implemented voltage
-                            and temperature protection, adaptive current limits,
-                            Coulomb-counting SOC estimation, and passive balancing
-                            for a three-cell lithium-ion pack. Generated C/C++ code
-                            with Embedded Coder and used MIL/SIL test harnesses for
-                            verification; the reported comparison showed a 100% signal match.
-                        </p>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="project-card" data-category="robotics">
-                    <img src="project4.jpg" alt="ROS 2 differential-drive robot in simulation"
-                         class="project-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=ROS+2+Robot'">
-                    <div class="project-content">
-                        <h3>Obstacle Avoidance Robot</h3>
-                        <p class="project-type">ROS 2 Robot Modeling &amp; Simulation</p>
-                        <div class="tags">
-                            <span>ROS 2</span><span>URDF</span><span>Gazebo Sim</span>
-                            <span>RViz</span><span>LiDAR</span>
+                    <article class="skill-card" data-aos="fade-up" data-aos-delay="160">
+                        <div class="skill-icon">
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <p>
-                            Created a URDF model for a two-wheel differential-drive
-                            robot with a caster wheel and LiDAR sensor. Built a
-                            custom map/world in Gazebo Sim and prepared a launch
-                            workflow for the robot-state publisher, joint-state
-                            publishing, simulator, RViz, and core robot nodes. The
-                            simulation provides a platform for developing and testing
-                            LiDAR-based obstacle-avoidance behavior.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="project-card" data-category="embedded">
-                    <img src="project5.jpg" alt="Drone and wireless control system"
-                         class="project-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Drone+and+Wireless+Control'">
-                    <div class="project-content">
-                        <h3>Drone and Wireless Control Systems</h3>
-                        <p class="project-type">Wireless Control &amp; Microcontrollers</p>
-                        <div class="tags">
-                            <span>Arduino</span><span>APM</span><span>NRF24L01</span><span>RF</span>
+                        <h3>Robotics & Simulation</h3>
+                        <div class="skill-tags">
+                            <span>ROS 2</span>
+                            <span>Gazebo</span>
+                            <span>URDF</span>
+                            <span>RViz</span>
+                            <span>LiDAR</span>
+                            <span>Robot Simulation</span>
                         </div>
-                        <p>
-                            Built and calibrated an APM-based aerial-photography
-                            drone. Developed a wireless joystick using Arduino Nano
-                            and NRF24L01 radio modules for remote command transmission.
-                        </p>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="project-card" data-category="embedded">
-                    <img src="project6.jpg" alt="Dishwasher embedded control board"
-                         class="project-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Dishwasher+Control+Card'">
-                    <div class="project-content">
-                        <h3>Dishwasher Control Card</h3>
-                        <p class="project-type">Microcontroller-Based Control &amp; PCB Design</p>
-                        <div class="tags">
-                            <span>ATmega328P</span><span>Embedded C</span><span>PCB Design</span>
+                    <article class="skill-card" data-aos="fade-up">
+                        <div class="skill-icon">
+                            <i class="fas fa-car-battery"></i>
                         </div>
-                        <p>
-                            Designed a custom control PCB around an ATmega328P for
-                            control of pumps, heaters, sensors, and status indicators.
-                            Worked on hardware integration and debugging to check
-                            the system's behavior.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="project-card" data-category="embedded">
-                    <img src="project7.jpg" alt="Automatic window control system"
-                         class="project-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Adaptive+Window+System'">
-                    <div class="project-content">
-                        <h3>Adaptive Window Opening System</h3>
-                        <p class="project-type">Sensor-Based Control</p>
-                        <div class="tags">
-                            <span>Arduino</span><span>MATLAB/Simulink</span><span>DSP</span>
+                        <h3>Battery Management</h3>
+                        <div class="skill-tags">
+                            <span>EV BMS</span>
+                            <span>Stateflow</span>
+                            <span>State of Charge</span>
+                            <span>Cell Balancing</span>
+                            <span>Safety Logic</span>
                         </div>
-                        <p>
-                            Developed an automatic window-opening controller using
-                            Arduino and MATLAB/Simulink. Applied digital
-                            signal-processing techniques to reduce noise in sensor
-                            readings and provide cleaner inputs to the controller.
-                        </p>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="project-card" data-category="embedded">
-                    <img src="project8.jpg" alt="Microcontroller-based smart home system"
-                         class="project-img" loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Smart+Home+Automation'">
-                    <div class="project-content">
-                        <h3>Smart Home Automation System</h3>
-                        <p class="project-type">Microcontroller-Based Automation</p>
-                        <div class="tags">
-                            <span>ATmega32</span><span>Embedded C</span><span>Sensors</span>
+                    <article class="skill-card" data-aos="fade-up" data-aos-delay="80">
+                        <div class="skill-icon">
+                            <i class="fas fa-satellite-dish"></i>
                         </div>
-                        <p>
-                            Developed a microcontroller-based system for lighting,
-                            door access, temperature monitoring, and gas detection,
-                            integrating sensor inputs with several home automation
-                            functions.
-                        </p>
-                    </div>
-                </article>
-            </div>
+                        <h3>Control & Communication</h3>
+                        <div class="skill-tags">
+                            <span>Wireless Control</span>
+                            <span>NRF24L01</span>
+                            <span>Arduino Nano</span>
+                            <span>Control Systems</span>
+                        </div>
+                    </article>
 
-            <p class="project-note">
-                Replace the sample project images with your own hardware photos,
-                Gazebo screenshots, Simulink models, Stateflow diagrams, and test plots.
-                Only describe features you have actually implemented and verified.
-            </p>
-        </section>
-
-        <section id="experience" data-aos="fade-up">
-            <div class="section-heading">
-                <h2 class="section-title">
-                    <i class="fas fa-briefcase"></i> Experience &amp; Leadership
-                </h2>
-            </div>
-
-            <div class="timeline-item">
-                <h3>Vice Leader &amp; Leader of Electric Systems</h3>
-                <span class="date">NCT Racing Team | Oct 2025 – Jul 2026</span>
-                <p>
-                    Led the electrical and embedded systems team, contributing to
-                    control-unit integration, power distribution, and communication
-                    systems. Coordinated PCB integration, wiring, real-time data
-                    acquisition, and vehicle testing for competition readiness.
-                </p>
-                <img src="racing-team.jpg" alt="NCT Racing Team"
-                     class="experience-img" loading="lazy"
-                     onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Racing+Team'">
-            </div>
-
-            <div class="timeline-item">
-                <h3>Automotive Control Trainee</h3>
-                <span class="date">Elgeuyshi Motors | Jun 2025</span>
-                <p>
-                    Assisted with vehicle diagnostics, electrical-system testing,
-                    and troubleshooting of automotive control systems.
-                </p>
+                    <article class="skill-card" data-aos="fade-up" data-aos-delay="160">
+                        <div class="skill-icon">
+                            <i class="fas fa-users-gear"></i>
+                        </div>
+                        <h3>Professional Skills</h3>
+                        <div class="skill-tags">
+                            <span>Technical Leadership</span>
+                            <span>Teamwork</span>
+                            <span>Problem Solving</span>
+                            <span>System Integration</span>
+                            <span>Technical Documentation</span>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section id="education" data-aos="fade-up">
-            <div class="section-heading">
-                <h2 class="section-title">
-                    <i class="fas fa-graduation-cap"></i> Education &amp; Professional Training
-                </h2>
-            </div>
+        <!-- Projects -->
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="eyebrow">Selected Work</span>
+                    <h2>Projects & Applications</h2>
+                    <p>
+                        A selection of projects across automotive systems, embedded
+                        development, robotics, and control.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
 
-            <div class="timeline-item">
-                <h3>Bachelor's Degree in Mechatronics Technology</h3>
-                <span class="date">
-                    New Cairo Technological University | Oct 2022 – Jul 2026
-                </span>
-                <p>GPA: 3.7 / 4.0 · Graduation Project GPA: 4.0 / 4.0</p>
-            </div>
+                <div class="project-filters" data-aos="fade-up">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="automotive">Automotive</button>
+                    <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
+                    <button class="filter-btn" data-filter="robotics">Robotics</button>
+                    <button class="filter-btn" data-filter="control">Control & Automation</button>
+                </div>
 
-            <div class="timeline-item">
-                <h3>ROS &amp; Robotics Diploma</h3>
-                <span class="date">Edges Academy | Jun 2026 – Present</span>
-                <p>Robotics and ROS-focused professional training.</p>
-            </div>
+                <div class="projects-grid">
 
-            <div class="timeline-item">
-                <h3>AUTOSAR Classic Application Development Using MBD</h3>
-                <span class="date">OS Academy | Aug 2026</span>
-                <p>
-                    Training focused on AUTOSAR Classic application development
-                    and model-based workflows.
-                </p>
-            </div>
+                    <!-- Project 1 -->
+                    <article class="project-card" data-category="control" data-aos="fade-up">
+                        <div class="project-image">
+                            <img src="project1.jpg"
+                                 alt="Portable renewable-energy-powered water purification project"
+                                 loading="lazy">
+                            <span class="project-category">Sustainability</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Portable Water Purification System</h3>
+                            <p>
+                                A portable water purification concept for rural areas,
+                                designed around renewable energy to support sustainable
+                                access to clean water.
+                            </p>
+                            <div class="project-tech">
+                                <span>Renewable Energy</span>
+                                <span>System Design</span>
+                                <span>Sustainability</span>
+                            </div>
+                        </div>
+                    </article>
 
-            <div class="timeline-item">
-                <h3>Model-Based Design (MBD)</h3>
-                <span class="date">OS Academy / Udemy | Apr 2026 – Aug 2026</span>
-                <p>
-                    Training in MATLAB/Simulink-based modeling and development workflows.
-                </p>
-            </div>
+                    <!-- Project 2 -->
+                    <article class="project-card" data-category="automotive" data-aos="fade-up" data-aos-delay="60">
+                        <div class="project-image">
+                            <img src="project2.jpg"
+                                 alt="Adaptive cruise control and automatic emergency braking model"
+                                 loading="lazy">
+                            <span class="project-category">Automotive</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Adaptive Cruise Control with AEB</h3>
+                            <p>
+                                Developed a MATLAB/Simulink longitudinal control model
+                                incorporating vehicle dynamics, radar-based relative
+                                distance and velocity, dynamic headway, and Stateflow
+                                modes for cruise control, distance control, and emergency braking.
+                            </p>
+                            <div class="project-tech">
+                                <span>MATLAB</span>
+                                <span>Simulink</span>
+                                <span>Stateflow</span>
+                                <span>Embedded Coder</span>
+                            </div>
+                        </div>
+                    </article>
 
-            <div class="timeline-item">
-                <h3>Embedded Systems Diploma</h3>
-                <span class="date">ITIDA / EME / QIS, Creativa | Jan – Feb 2026</span>
-                <p>Embedded systems training.</p>
-            </div>
+                    <!-- Project 3 -->
+                    <article class="project-card" data-category="automotive embedded" data-aos="fade-up" data-aos-delay="120">
+                        <div class="project-image">
+                            <img src="project3.jpg"
+                                 alt="Electric vehicle battery management system project"
+                                 loading="lazy">
+                            <span class="project-category">EV Systems</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Electric Vehicle Battery Management System</h3>
+                            <p>
+                                Designed a multi-rate Simulink/Stateflow BMS model with
+                                safety disconnect logic, current limits, Coulomb-counting
+                                state-of-charge estimation, and passive balancing for a
+                                three-cell battery pack.
+                            </p>
+                            <div class="project-tech">
+                                <span>Simulink</span>
+                                <span>Stateflow</span>
+                                <span>BMS</span>
+                                <span>MIL/SIL</span>
+                            </div>
+                        </div>
+                    </article>
 
-            <div class="timeline-item">
-                <h3>Embedded Systems</h3>
-                <span class="date">Power Source | Jul 2023 – Feb 2024</span>
-            </div>
+                    <!-- Project 4 -->
+                    <article class="project-card" data-category="robotics" data-aos="fade-up">
+                        <div class="project-image">
+                            <img src="project4.jpg"
+                                 alt="Mobile robot simulation for obstacle avoidance development"
+                                 loading="lazy">
+                            <span class="project-category">Robotics</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Obstacle Avoidance Robot Using ROS 2</h3>
+                            <p>
+                                Built a simulated mobile robot platform with a custom
+                                URDF, differential-drive configuration, LiDAR, and a
+                                custom Gazebo world. The simulation provides a foundation
+                                for developing and testing obstacle-avoidance behavior.
+                            </p>
+                            <div class="project-tech">
+                                <span>ROS 2</span>
+                                <span>Gazebo</span>
+                                <span>URDF</span>
+                                <span>LiDAR</span>
+                                <span>RViz</span>
+                            </div>
+                        </div>
+                    </article>
 
-            <div class="timeline-item">
-                <h3>C Programming</h3>
-                <span class="date">Udemy | Aug – Oct 2023</span>
-            </div>
+                    <!-- Project 5 -->
+                    <article class="project-card" data-category="embedded control" data-aos="fade-up" data-aos-delay="60">
+                        <div class="project-image">
+                            <img src="project5.jpg"
+                                 alt="Drone control and wireless communication system"
+                                 loading="lazy">
+                            <span class="project-category">Wireless Control</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Drone Control & Wireless Communication</h3>
+                            <p>
+                                An APM-based aerial photography drone control setup
+                                incorporating an Arduino Nano joystick interface and
+                                NRF24L01 radio modules for wireless command transmission
+                                and remote operation.
+                            </p>
+                            <div class="project-tech">
+                                <span>APM</span>
+                                <span>Arduino Nano</span>
+                                <span>NRF24L01</span>
+                                <span>Wireless Control</span>
+                            </div>
+                        </div>
+                    </article>
 
-            <div class="timeline-item">
-                <h3>Languages</h3>
-                <p>
-                    Arabic: Native/Bilingual · English: Native/Bilingual ·
-                    German: Fluent · French: Conversational
-                </p>
+                    <!-- Project 6 -->
+                    <article class="project-card" data-category="embedded control" data-aos="fade-up" data-aos-delay="120">
+                        <div class="project-image">
+                            <img src="project6.jpg"
+                                 alt="Dishwasher electronic control card"
+                                 loading="lazy">
+                            <span class="project-category">Electronics</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Dishwasher Control Card</h3>
+                            <p>
+                                Worked on a dishwasher control-card project focused on
+                                electronic control and the coordination of appliance
+                                operating functions.
+                            </p>
+                            <div class="project-tech">
+                                <span>Electronics</span>
+                                <span>Control Systems</span>
+                                <span>Embedded Concepts</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 7 -->
+                    <article class="project-card" data-category="embedded control" data-aos="fade-up">
+                        <div class="project-image">
+                            <img src="project7.jpg"
+                                 alt="Adaptive window opening control system"
+                                 loading="lazy">
+                            <span class="project-category">Automation</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Adaptive Window Opening System</h3>
+                            <p>
+                                An adaptive window-opening system concept focused on
+                                automated operation and responsive control based on
+                                system inputs and environmental conditions.
+                            </p>
+                            <div class="project-tech">
+                                <span>Automation</span>
+                                <span>Control Logic</span>
+                                <span>System Design</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 8 -->
+                    <article class="project-card" data-category="embedded control" data-aos="fade-up" data-aos-delay="60">
+                        <div class="project-image">
+                            <img src="project8.jpg"
+                                 alt="Smart home automation system"
+                                 loading="lazy">
+                            <span class="project-category">Smart Systems</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Smart Home Automation</h3>
+                            <p>
+                                A smart home automation project exploring the integration
+                                of control and electronic systems to support convenient
+                                management of home functions.
+                            </p>
+                            <div class="project-tech">
+                                <span>Automation</span>
+                                <span>Electronics</span>
+                                <span>Control Systems</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-panel" data-aos="fade-up">
-            <h2 class="section-title">
-                <i class="fas fa-paper-plane"></i> Let's Connect
-            </h2>
-            <p>
-                Interested in robotics, embedded systems, or automotive model-based
-                development opportunities? Feel free to get in touch.
-            </p>
+        <!-- Experience & Leadership -->
+        <section class="section experience-section" id="experience">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="eyebrow">Experience</span>
+                    <h2>Experience & Leadership</h2>
+                    <p>
+                        Practical engineering exposure, technical collaboration,
+                        and team leadership.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
 
-            <div class="hero-actions" style="justify-content:center;">
-                <a class="button button-primary" href="mailto:marwansaad672@gmail.com">
-                    <i class="fas fa-envelope"></i> Email Me
-                </a>
-                <a class="button button-outline"
-                   href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
-                   target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
+                <div class="experience-layout">
+                    <div class="timeline" data-aos="fade-right">
+
+                        <article class="timeline-item">
+                            <div class="timeline-date">October 2025 – July 2026</div>
+                            <h3>Vice Leader & Leader of Electric Systems</h3>
+                            <h4>NCT Racing Team</h4>
+                            <p>
+                                Contributed to the team's electric-systems activities
+                                and leadership responsibilities, supporting technical
+                                coordination and collaboration within the racing team.
+                            </p>
+                            <ul>
+                                <li>Supported coordination of electric-systems tasks.</li>
+                                <li>Collaborated with team members on technical activities.</li>
+                                <li>Contributed to organizing work and communicating engineering requirements.</li>
+                            </ul>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-date">June 2025</div>
+                            <h3>Automotive Control Trainee</h3>
+                            <h4>Elgeuyshi Motors</h4>
+                            <p>
+                                Gained exposure to automotive control-related work and
+                                practical engineering processes in an automotive environment.
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div class="experience-image" data-aos="fade-left">
+                        <img src="racing-team.jpg"
+                             alt="Racing team and electric systems activities"
+                             loading="lazy"
+                             onerror="this.style.display='none';">
+
+                        <div class="experience-image-caption">
+                            <h3>Teamwork & Technical Leadership</h3>
+                            <p>
+                                Combining engineering problem-solving with communication,
+                                coordination, and collaborative technical work.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="eyebrow">Get In Touch</span>
+                    <h2>Let's Connect</h2>
+                    <p>
+                        Have an engineering opportunity, technical project, or
+                        collaboration in mind? Feel free to reach out.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info" data-aos="fade-right">
+                        <h3>Contact Information</h3>
+                        <p>
+                            I'm open to connecting about engineering, embedded systems,
+                            automotive control, robotics, and related opportunities.
+                        </p>
+
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:marwansaad672@gmail.com">
+                                    marwansaad672@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+201015093654">
+                                    01015093654
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Cairo, Egypt</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <i class="fab fa-linkedin-in"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
+                                   target="_blank" rel="noopener noreferrer">
+                                    View LinkedIn Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm" data-aos="fade-left">
+                        <h3>Send a Message</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name"
+                                       placeholder="Enter your name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email"
+                                       placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject"
+                                   placeholder="What is this regarding?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message"
+                                      placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+
+                        <p class="form-note">
+                            This form opens your email application to send the message.
+                        </p>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>
-            &copy; <span id="year">2026</span> Marwan Ibrahim · Mechatronics Technologist
-        </p>
+        <div class="container footer-content">
+            <p>
+                &copy; <span id="currentYear"></span> Marwan Ibrahim.
+                All rights reserved.
+            </p>
+
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="mailto:marwansaad672@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
     </footer>
 
+    <!-- Back to Top -->
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        if (window.AOS) {
+        // Initialize scroll animations
+        if (typeof AOS !== "undefined") {
             AOS.init({
+                duration: 750,
                 once: true,
-                offset: 80,
-                duration: 650,
-                disable: window.matchMedia(
-                    '(prefers-reduced-motion: reduce)'
-                ).matches
+                offset: 70
             });
         }
 
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
+        // Mobile navigation menu
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
 
-        filterButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("open");
 
-                filterButtons.forEach((item) => {
-                    const isActive = item === button;
-                    item.classList.toggle('active', isActive);
-                    item.setAttribute('aria-pressed', String(isActive));
-                });
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
 
-                projectCards.forEach((card) => {
-                    const matches =
-                        filter === 'all' ||
-                        card.dataset.category === filter;
+            menuToggle.innerHTML = isOpen
+                ? '<i class="fas fa-xmark"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
 
-                    card.hidden = !matches;
-                });
+        // Close mobile navigation after selecting a section
+        document.querySelectorAll("#navLinks a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Open navigation menu");
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
 
-        document.getElementById('year').textContent =
+        // Project filtering
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                const filter = button.dataset.filter;
+
+                filterButtons.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                projectCards.forEach(function (card) {
+                    const categories = card.dataset.category.split(" ");
+                    const shouldShow =
+                        filter === "all" || categories.includes(filter);
+
+                    card.classList.toggle("hidden", !shouldShow);
+                });
+
+                // Refresh animations for visible project cards
+                if (typeof AOS !== "undefined") {
+                    AOS.refresh();
+                }
+            });
+        });
+
+        // Dynamic copyright year
+        document.getElementById("currentYear").textContent =
             new Date().getFullYear();
+
+        // Back-to-top button visibility
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function () {
+            backToTop.classList.toggle("visible", window.scrollY > 400);
+        });
+
+        // Contact form: prepare an email using the visitor's email application
+        const contactForm = document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const emailSubject = encodeURIComponent(subject);
+            const emailBody = encodeURIComponent(
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n\n" +
+                "Message:\n" + message
+            );
+
+            const mailtoLink =
+                "mailto:marwansaad672@gmail.com" +
+                "?subject=" + emailSubject +
+                "&body=" + emailBody;
+
+            window.location.href = mailtoLink;
+        });
     </script>
+
 </body>
 </html>
