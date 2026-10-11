@@ -1,212 +1,716 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marwan Ibrahim | Mechatronics Technologist</title>
-    
-    <!-- مكتبة الأيقونات -->
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- مكتبة الحركات (Animations) -->
+
+    <!-- Animate On Scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
-        /* باليتة الألوان الجديدة (برغندي - كاكي - بيج - بني) */
-        :root { 
-            --primary-color: #722F37; /* برغندي */
-            --secondary-color: #A38A58; /* كاكي */
-            --bg-color: #F7F5EE; /* بيج فاتح */
-            --text-color: #4E342E; /* بني غامق */
-            --card-bg: #FFFFFF; /* أبيض للكروت عشان تبرز */
+        :root {
+            --primary-color: #722F37;
+            --secondary-color: #A38A58;
+            --bg-color: #F7F5EE;
+            --text-color: #4E342E;
+            --card-bg: #FFFFFF;
         }
-        
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
-        
-        /* تصميم الهيدر */
-        header { background-color: var(--primary-color); color: #F7F5EE; padding: 5rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #F7F5EE;
+            padding: 5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
         @media (min-width: 768px) {
-            header { flex-direction: row; text-align: left; gap: 40px; }
+            header {
+                flex-direction: row;
+                text-align: left;
+                gap: 40px;
+            }
         }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 5px solid var(--secondary-color); object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .header-content h1 { margin: 0; font-size: 3rem; font-weight: 700; letter-spacing: 1px; }
-        .header-content h2 { color: var(--secondary-color); font-weight: 400; margin: 10px 0; font-size: 1.5rem; }
-        .header-content p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 15px 0; color: #E8E0D5; }
-        .social-links a { color: #F7F5EE; font-size: 1.8rem; margin-right: 15px; transition: color 0.3s, transform 0.3s; text-decoration: none; display: inline-block; }
-        .social-links a:hover { color: var(--secondary-color); transform: translateY(-5px); }
-        
-        .container { max-width: 1100px; margin: -40px auto 2rem; padding: 0 20px; position: relative; z-index: 10; }
-        section { background: var(--card-bg); padding: 40px; margin-bottom: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(78, 52, 46, 0.05); }
-        h2.section-title { color: var(--primary-color); border-bottom: 3px solid var(--secondary-color); display: inline-block; padding-bottom: 8px; margin-top: 0; font-size: 1.8rem; }
-        
-        /* تصميم المهارات */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .skill-box { padding: 20px; background: var(--bg-color); border-radius: 8px; border-left: 4px solid var(--secondary-color); transition: transform 0.3s; }
-        .skill-box:hover { transform: translateX(10px); }
-        .skill-box h3 { margin-top: 0; color: var(--primary-color); font-size: 1.2rem; }
-        
-        /* تصميم المشاريع */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 25px; }
-        .project-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(78, 52, 46, 0.08); transition: transform 0.4s, box-shadow 0.4s; display: flex; flex-direction: column; }
-        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(78, 52, 46, 0.15); }
-        .project-img { width: 100%; height: 220px; object-fit: cover; border-bottom: 4px solid var(--secondary-color); }
-        .project-content { padding: 25px; flex-grow: 1; }
-        .project-content h3 { color: var(--primary-color); margin-top: 0; font-size: 1.4rem; }
-        .project-content .tags { font-size: 0.85rem; color: var(--secondary-color); font-weight: bold; margin-bottom: 15px; display: block; }
-        .project-content p { font-size: 0.95rem; margin-bottom: 0; color: var(--text-color); }
-        
-        /* تصميم الخبرات والتعليم */
-        .timeline-item { margin-bottom: 25px; padding-left: 20px; border-left: 3px solid var(--secondary-color); position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 5px; width: 17px; height: 17px; border-radius: 50%; background: var(--secondary-color); border: 3px solid var(--card-bg); }
-        .timeline-item h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 1.2rem; }
-        .timeline-item .date { font-size: 0.9rem; color: #8D6E63; font-weight: bold; margin-bottom: 10px; display: block; }
-        
-        /* تصميم صورة فريق السباق */
-        .experience-img { width: 100%; max-width: 500px; height: auto; border-radius: 8px; margin-top: 15px; border: 2px solid #E8E0D5; box-shadow: 0 4px 10px rgba(78, 52, 46, 0.1); }
-        
-        footer { text-align: center; padding: 25px; background: var(--primary-color); color: #F7F5EE; margin-top: 50px; }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-content h2 {
+            color: var(--secondary-color);
+            font-weight: 400;
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 15px 0;
+            color: #E8E0D5;
+        }
+
+        .social-links a {
+            color: #F7F5EE;
+            font-size: 1.8rem;
+            margin-right: 15px;
+            transition: color 0.3s, transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 2rem;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(78, 52, 46, 0.05);
+        }
+
+        h2.section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        /* Technical Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-box {
+            padding: 20px;
+            background: var(--bg-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+
+        .skill-box:hover {
+            transform: translateX(10px);
+        }
+
+        .skill-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Featured Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .projects-intro {
+            max-width: 850px;
+            margin: 16px 0 0;
+            color: var(--text-color);
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(78, 52, 46, 0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(78, 52, 46, 0.15);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+
+        .project-content .tags {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .project-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--text-color);
+        }
+
+        /* Experience and Education */
+        .timeline-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid var(--card-bg);
+        }
+
+        .timeline-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .timeline-item .date {
+            font-size: 0.9rem;
+            color: #8D6E63;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .experience-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 2px solid #E8E0D5;
+            box-shadow: 0 4px 10px rgba(78, 52, 46, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--primary-color);
+            color: #F7F5EE;
+            margin-top: 50px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            header {
+                padding: 4rem 1.25rem;
+            }
+
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
+            section {
+                padding: 24px 18px;
+            }
+
+            h2.section-title {
+                font-size: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-content {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
+    <!-- Header -->
     <header>
-        <img src="profile.jpg" alt="Marwan Ibrahim" class="profile-img" onerror="this.src='https://via.placeholder.com/200'" data-aos="zoom-in" data-aos-duration="1000">
-        
+        <img
+            src="profile.jpg"
+            alt="Marwan Ibrahim"
+            class="profile-img"
+            onerror="this.src='https://via.placeholder.com/200'"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+        >
+
         <div class="header-content" data-aos="fade-left" data-aos-duration="1000">
             <h1>Marwan Ibrahim</h1>
             <h2>Mechatronics Technologist</h2>
-            <p>ROS 2 & Robotics | Embedded Systems | Model-Based Development</p>
+            <p>ROS 2 &amp; Robotics | Embedded Systems | Model-Based Development</p>
+
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:marwansaad672@gmail.com" title="Email Me"><i class="fas fa-envelope"></i></a>
+                <a
+                    href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="LinkedIn"
+                    aria-label="LinkedIn"
+                >
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a
+                    href="mailto:marwansaad672@gmail.com"
+                    title="Email Me"
+                    aria-label="Email"
+                >
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
     </header>
 
-    <div class="container">
-        
+    <main class="container">
+
+        <!-- About Me -->
         <section id="about" data-aos="fade-up" data-aos-duration="800">
-            <h2 class="section-title"><i class="fas fa-user-tie"></i> About Me</h2>
-            <p>Mechatronics Technologist focused on robotics, embedded systems, and automotive Model-Based Development. Experienced in developing sensor-based control systems, integrating electronics and embedded software, and working with MIL/SIL testing and AUTOSAR Classic. Strong background in technical leadership for electrical and embedded systems teams within student racing competitions.</p>
+            <h2 class="section-title">
+                <i class="fas fa-user-tie"></i> About Me
+            </h2>
+
+            <p>
+                Mechatronics Technologist focused on robotics, embedded systems,
+                and automotive Model-Based Development. Experienced in developing
+                sensor-based control systems, integrating electronics and embedded
+                software, and working with MIL/SIL testing and AUTOSAR Classic.
+                Strong background in technical leadership for electrical and
+                embedded systems teams within student racing competitions.
+            </p>
         </section>
 
+        <!-- Technical Skills -->
         <section id="skills" data-aos="fade-up" data-aos-duration="800">
-            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+            <h2 class="section-title">
+                <i class="fas fa-laptop-code"></i> Technical Skills
+            </h2>
+
             <div class="skills-grid">
+
                 <div class="skill-box" data-aos="fade-right" data-aos-delay="100">
-                    <h3><i class="fas fa-robot"></i> ROS 2 & Robotics</h3>
-                    <p>ROS 2, Linux, Python/OOP, Gazebo, URDF, SLAM, navigation, and localization.</p>
+                    <h3><i class="fas fa-robot"></i> ROS 2 &amp; Robotics</h3>
+                    <p>
+                        ROS 2, Linux, Python/OOP, Gazebo, URDF, SLAM,
+                        navigation, and localization.
+                    </p>
                 </div>
+
                 <div class="skill-box" data-aos="fade-right" data-aos-delay="200">
                     <h3><i class="fas fa-microchip"></i> Embedded Systems</h3>
-                    <p>Embedded C/C++, STM32, ESP32, ATmega328P, Microcontroller programming.</p>
+                    <p>
+                        Embedded C/C++, STM32, ESP32, ATmega328P,
+                        and microcontroller programming.
+                    </p>
                 </div>
+
                 <div class="skill-box" data-aos="fade-right" data-aos-delay="300">
-                    <h3><i class="fas fa-project-diagram"></i> MBD & Automotive</h3>
-                    <p>MATLAB/Simulink, Stateflow, MIL/SIL testing, Embedded Coder, AUTOSAR Classic, BMS.</p>
+                    <h3><i class="fas fa-project-diagram"></i> MBD &amp; Automotive</h3>
+                    <p>
+                        MATLAB/Simulink, Stateflow, MIL/SIL testing,
+                        Embedded Coder, AUTOSAR Classic, and BMS.
+                    </p>
                 </div>
+
                 <div class="skill-box" data-aos="fade-right" data-aos-delay="400">
-                    <h3><i class="fas fa-bolt"></i> Electronics & Comms</h3>
-                    <p>PCB Design (KiCad, Proteus), Power Electronics, UART, SPI, I2C, CAN, Wi-Fi.</p>
+                    <h3><i class="fas fa-bolt"></i> Electronics &amp; Communications</h3>
+                    <p>
+                        PCB design (KiCad, Proteus), power electronics,
+                        UART, SPI, I2C, CAN, and Wi-Fi.
+                    </p>
                 </div>
+
             </div>
         </section>
 
+        <!-- Featured Projects -->
         <section id="projects">
-            <h2 class="section-title" data-aos="fade-up"><i class="fas fa-cogs"></i> Featured Projects</h2>
+            <h2 class="section-title" data-aos="fade-up">
+                <i class="fas fa-cogs"></i> Featured Projects
+            </h2>
+
+            <p class="projects-intro" data-aos="fade-up">
+                A selection of projects spanning embedded control, robotics
+                simulation, automotive model-based development, and connected
+                mechatronic systems. Each project highlights the engineering
+                problem, the tools used, and the work completed.
+            </p>
+
             <div class="projects-grid">
-                
-                <div class="project-card" data-aos="fade-up" data-aos-duration="800">
-                    <img src="project1.jpg" alt="Water Purification System" class="project-img" onerror="this.src='https://via.placeholder.com/400x200'">
-                    <div class="project-content">
-                        <h3>IoT Portable Water Purification System</h3>
-                        <span class="tags">Graduation Project (GPA: 4.0) | ESP32 | Sensors | IoT</span>
-                        <p>Spearheaded a multidisciplinary team to architect a fully automated RO system. Integrated pH, TDS, and pressure sensors with an ESP32 for IoT telemetry, and engineered a solar-powered battery charging PCB.</p>
-                    </div>
-                </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                    <img src="project2.jpg" alt="ACC System" class="project-img" onerror="this.src='https://via.placeholder.com/400x200'">
-                    <div class="project-content">
-                        <h3>Adaptive Cruise Control (ACC) with AEB</h3>
-                        <span class="tags">MATLAB | Simulink | Stateflow | MIL</span>
-                        <p>Engineered an advanced ADAS focusing on longitudinal dynamics. Designed speed/distance controllers and a finite-state machine for safety-critical Autonomous Emergency Braking, validated via MIL testing.</p>
-                    </div>
-                </div>
+                <!-- Graduation Project -->
+                <article class="project-card" data-aos="fade-up" data-aos-duration="800">
+                    <img
+                        src="project1.jpg"
+                        alt="Portable water purification system"
+                        class="project-img"
+                        onerror="this.src='https://via.placeholder.com/400x200'"
+                    >
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                    <img src="project3.jpg" alt="BMS System" class="project-img" onerror="this.src='https://via.placeholder.com/400x200'">
                     <div class="project-content">
-                        <h3>EV Battery Management System (BMS)</h3>
-                        <span class="tags">MATLAB | Simulink | SIL/MIL</span>
-                        <p>Designed a multi-rate BMS execution architecture managing state estimation, balancing, and safety mechanisms. Verified through rigorous MIL/SIL testing achieving a 100% signal match.</p>
-                    </div>
-                </div>
+                        <h3>Portable Water Purification System for Rural Areas</h3>
+                        <span class="tags">
+                            Graduation Project | ESP32 | Embedded Systems | IoT | Renewable Energy
+                        </span>
 
-                <div class="project-card" data-aos="fade-up" data-aos-duration="800">
-                    <img src="project4.jpg" alt="ROS 2 Robot" class="project-img" onerror="this.src='https://via.placeholder.com/400x200'">
-                    <div class="project-content">
-                        <h3>Autonomous Obstacle Avoidance Robot</h3>
-                        <span class="tags">ROS 2 | URDF | Gazebo | LiDAR</span>
-                        <p>Designed and simulated a two-wheeled differential-drive robot utilizing a precise URDF model. Configured the navigation stack in Gazebo to process real-time LiDAR data for dynamic obstacle avoidance.</p>
+                        <p>
+                            Led the embedded systems and IoT work for an automated
+                            reverse-osmosis water purification system. Integrated
+                            pH, TDS, water-level, pressure, and battery monitoring
+                            with pumps and solenoid valves; developed control logic
+                            and mobile IoT monitoring; and worked on custom control
+                            hardware with solar-powered battery charging.
+                        </p>
                     </div>
-                </div>
-                
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                    <img src="project5.jpg" alt="UAV System" class="project-img" onerror="this.src='https://via.placeholder.com/400x200'">
+                </article>
+
+                <!-- ACC with AEB -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <img
+                        src="project2.jpg"
+                        alt="Adaptive cruise control and emergency braking model"
+                        class="project-img"
+                        onerror="this.src='https://via.placeholder.com/400x200'"
+                    >
+
                     <div class="project-content">
-                        <h3>UAV & Custom Wireless Telemetry</h3>
-                        <span class="tags">Arduino | APM | NRF24L01 | RF</span>
-                        <p>Calibrated an APM-based quadcopter for stable autonomous flight. Engineered a custom wireless joystick controller utilizing NRF24L01 RF modules for low-latency, reliable telemetry.</p>
+                        <h3>Adaptive Cruise Control (ACC) with Autonomous Emergency Braking</h3>
+                        <span class="tags">
+                            MATLAB | Simulink | Stateflow | Embedded Coder | ADAS | MIL
+                        </span>
+
+                        <p>
+                            Developed a longitudinal-control model using an ego-vehicle
+                            dynamics plant and radar-based relative-distance and
+                            relative-velocity signals. Implemented speed and distance
+                            control with dynamic headway logic, plus Stateflow modes
+                            for cruise control, following a target vehicle, and
+                            emergency braking. Evaluated controller behavior through
+                            MIL scenarios and generated ANSI C code with the Embedded
+                            Coder ERT target.
+                        </p>
                     </div>
-                </div>
+                </article>
+
+                <!-- Battery Management System -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                    <img
+                        src="project3.jpg"
+                        alt="Electric vehicle battery management system"
+                        class="project-img"
+                        onerror="this.src='https://via.placeholder.com/400x200'"
+                    >
+
+                    <div class="project-content">
+                        <h3>Battery Management System for Electric Vehicles</h3>
+                        <span class="tags">
+                            MATLAB | Simulink | Stateflow | Embedded Coder | MIL/SIL
+                        </span>
+
+                        <p>
+                            Built a multi-rate BMS model with operating modes for
+                            initialization, standby, charging, driving, and fault
+                            handling. Implemented voltage and temperature protection,
+                            current limits, Coulomb-counting SOC estimation, and
+                            passive balancing for a three-cell lithium-ion pack.
+                            Generated C/C++ code using Embedded Coder and verified
+                            model behavior with MIL/SIL test harnesses; the reported
+                            comparison showed a 100% signal match.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- ROS 2 Robot -->
+                <article class="project-card" data-aos="fade-up" data-aos-duration="800">
+                    <img
+                        src="project4.jpg"
+                        alt="ROS 2 differential-drive robot in simulation"
+                        class="project-img"
+                        onerror="this.src='https://via.placeholder.com/400x200'"
+                    >
+
+                    <div class="project-content">
+                        <h3>Obstacle Avoidance Robot</h3>
+                        <span class="tags">
+                            ROS 2 | URDF | Gazebo Sim | RViz | LiDAR
+                        </span>
+
+                        <p>
+                            Created a URDF model for a two-wheel differential-drive
+                            robot with a caster wheel and LiDAR sensor. Built a custom
+                            map/world in Gazebo Sim and prepared a launch workflow to
+                            start the robot-state publisher, joint-state publishing,
+                            simulator, RViz, and core robot nodes. This provides a
+                            simulated platform for developing and testing LiDAR-based
+                            obstacle-avoidance behavior.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Drone and Wireless Control -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <img
+                        src="project5.jpg"
+                        alt="Drone and wireless control system"
+                        class="project-img"
+                        onerror="this.src='https://via.placeholder.com/400x200'"
+                    >
+
+                    <div class="project-content">
+                        <h3>Drone and Wireless Control Systems</h3>
+                        <span class="tags">
+                            Arduino | APM | NRF24L01 | Wireless Control
+                        </span>
+
+                        <p>
+                            Built and calibrated an APM-based aerial-photography
+                            drone. Also developed a wireless joystick using an
+                            Arduino Nano and NRF24L01 radio modules, combining
+                            microcontroller programming with wireless command
+                            transmission.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Dishwasher Control Card -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                    <img
+                        src="project6.jpg"
+                        alt="Dishwasher embedded control board"
+                        class="project-img"
+                        onerror="this.src='https://via.placeholder.com/400x200'"
+                    >
+
+                    <div class="project-content">
+                        <h3>Dishwasher Control Card</h3>
+                        <span class="tags">
+                            ATmega328P | Embedded C | PCB Design | Sensors and Actuators
+                        </span>
+
+                        <p>
+                            Designed a custom control PCB around an ATmega328P for
+                            a dishwasher system. Worked on embedded control for
+                            pumps, heaters, sensors, and status indicators, along
+                            with hardware integration and debugging.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Adaptive Window Opening -->
+                <article class="project-card" data-aos="fade-up" data-aos-duration="800">
+                    <img
+                        src="project7.jpg"
+                        alt="Automatic window control system"
+                        class="project-img"
+                        onerror="this.src='https://via.placeholder.com/400x200'"
+                    >
+
+                    <div class="project-content">
+                        <h3>Adaptive Window Opening System</h3>
+                        <span class="tags">
+                            Arduino | MATLAB/Simulink | Digital Signal Processing
+                        </span>
+
+                        <p>
+                            Developed an automatic window-opening controller using
+                            Arduino and MATLAB/Simulink. Applied digital
+                            signal-processing techniques to filter noise in sensor
+                            readings and support more stable control inputs.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Smart Home Automation -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <img
+                        src="project8.jpg"
+                        alt="Microcontroller-based smart home system"
+                        class="project-img"
+                        onerror="this.src='https://via.placeholder.com/400x200'"
+                    >
+
+                    <div class="project-content">
+                        <h3>Smart Home Automation System</h3>
+                        <span class="tags">
+                            ATmega32 | Embedded C | Sensors | Automation
+                        </span>
+
+                        <p>
+                            Developed a microcontroller-based home automation system
+                            covering lighting, door access, temperature monitoring,
+                            and gas detection. Integrated sensor inputs with control
+                            functions to demonstrate several connected home
+                            applications.
+                        </p>
+                    </div>
+                </article>
 
             </div>
         </section>
 
+        <!-- Experience and Leadership -->
         <section id="experience" data-aos="fade-right" data-aos-duration="800">
-            <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience & Leadership</h2>
-            
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i> Experience &amp; Leadership
+            </h2>
+
             <div class="timeline-item">
-                <h4>Vice Leader & Leader of Electric Systems</h4>
+                <h4>Vice Leader &amp; Leader of Electric Systems</h4>
                 <span class="date">NCT Racing Team | Oct 2025 - Jul 2026</span>
-                <p>Led the electrical and embedded systems team. Designed control units, power distribution, and communication systems. Supervised PCB integration and real-time data acquisition for competition readiness.</p>
-                <img src="racing-team.jpg" alt="NCT Racing Team" class="experience-img" onerror="this.src='https://via.placeholder.com/500x300'" data-aos="zoom-in" data-aos-delay="100">
+
+                <p>
+                    Led the electrical and embedded systems team. Designed control
+                    units, power distribution, and communication systems. Supervised
+                    PCB integration and real-time data acquisition for competition
+                    readiness.
+                </p>
+
+                <img
+                    src="racing-team.jpg"
+                    alt="NCT Racing Team"
+                    class="experience-img"
+                    onerror="this.src='https://via.placeholder.com/500x300'"
+                    data-aos="zoom-in"
+                    data-aos-delay="100"
+                >
             </div>
-            
+
             <div class="timeline-item">
                 <h4>Automotive Control Trainee</h4>
                 <span class="date">Elgeuyshi Motors | Jun 2025</span>
-                <p>Assisted with vehicle diagnostics, electrical-system testing, and troubleshooting of automotive control systems.</p>
+
+                <p>
+                    Assisted with vehicle diagnostics, electrical-system testing,
+                    and troubleshooting of automotive control systems.
+                </p>
             </div>
         </section>
 
+        <!-- Education and Courses -->
         <section id="education" data-aos="fade-left" data-aos-duration="800">
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Courses</h2>
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i> Education &amp; Courses
+            </h2>
+
             <div class="timeline-item">
                 <h4>Bachelor's Degree in Mechatronics Technology</h4>
-                <span class="date">New Cairo Technological University | Oct 2022 - Jul 2026</span>
+                <span class="date">
+                    New Cairo Technological University | Oct 2022 - Jul 2026
+                </span>
+
                 <p>GPA: 3.7 | Graduation Project GPA: 4.0</p>
             </div>
+
             <div class="timeline-item">
-                <h4>Professional Diplomas & Certifications</h4>
+                <h4>Professional Diplomas &amp; Certifications</h4>
                 <span class="date">Various Academies</span>
-                <p>ROS & Robotics Diploma, AUTOSAR Classic Application Development using MBD, Automotive Model-Based Design (MBD), Embedded Systems Diploma.</p>
+
+                <p>
+                    ROS &amp; Robotics Diploma, AUTOSAR Classic Application
+                    Development using MBD, Automotive Model-Based Design (MBD),
+                    and Embedded Systems Diploma.
+                </p>
             </div>
         </section>
 
-    </div>
+    </main>
 
+    <!-- Footer -->
     <footer data-aos="zoom-in">
-        <p>&copy; 2026 Marwan Ibrahim. Built with <i class="fas fa-code"></i> and Passion.</p>
+        <p>
+            &copy; 2026 Marwan Ibrahim. Built with
+            <i class="fas fa-code"></i> and Passion.
+        </p>
     </footer>
 
+    <!-- Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
         AOS.init({
             once: true,
             offset: 100
         });
     </script>
+
 </body>
 </html>
