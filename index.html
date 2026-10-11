@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +61,6 @@
             top: 10px;
         }
 
-        /* Navigation */
         .site-nav {
             position: sticky;
             top: 0;
@@ -107,7 +107,6 @@
             color: #e1c98e;
         }
 
-        /* Hero */
         header.hero {
             background:
                 radial-gradient(circle at 80% 20%, rgba(163,138,88,.2), transparent 34%),
@@ -134,15 +133,6 @@
             object-fit: cover;
             box-shadow: 0 12px 28px rgba(0,0,0,.25);
             background: rgba(255,255,255,.08);
-        }
-
-        .eyebrow {
-            margin: 0 0 8px;
-            color: #e1c98e;
-            text-transform: uppercase;
-            letter-spacing: .16em;
-            font-size: .78rem;
-            font-weight: 800;
         }
 
         .hero h1 {
@@ -219,7 +209,6 @@
             color: #e1c98e;
         }
 
-        /* Main sections */
         main {
             max-width: 1120px;
             margin: -42px auto 0;
@@ -294,7 +283,6 @@
             width: 18px;
         }
 
-        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -318,7 +306,6 @@
             margin: 0;
         }
 
-        /* Projects */
         .project-toolbar {
             display: flex;
             justify-content: space-between;
@@ -432,23 +419,12 @@
             font-size: .95rem;
         }
 
-        .project-content ul {
-            padding-left: 20px;
-            margin: 12px 0 0;
-            font-size: .92rem;
-        }
-
-        .project-content li {
-            margin-bottom: 5px;
-        }
-
         .project-note {
             color: var(--muted);
             font-size: .88rem;
             margin-top: 18px;
         }
 
-        /* Experience and education */
         .timeline-item {
             margin-bottom: 26px;
             padding-left: 22px;
@@ -496,7 +472,6 @@
             border: 1px solid var(--border);
         }
 
-        /* Contact and footer */
         .contact-panel {
             background: var(--primary);
             color: #fff;
@@ -616,7 +591,6 @@
             >
 
             <div class="hero-content" data-aos="fade-left">
-                <p class="eyebrow">Engineering Portfolio</p>
                 <h1>Marwan Ibrahim</h1>
                 <h2>Mechatronics Technologist</h2>
 
@@ -649,7 +623,6 @@
                     >
                         <i class="fab fa-linkedin"></i>
                     </a>
-
                     <a
                         href="mailto:marwansaad672@gmail.com"
                         aria-label="Email Marwan"
@@ -663,8 +636,6 @@
     </header>
 
     <main id="main-content">
-
-        <!-- About Me -->
         <section id="about" data-aos="fade-up">
             <div class="section-heading">
                 <h2 class="section-title">
@@ -680,7 +651,6 @@
                         (MBD). My work combines software, electronics, sensing,
                         and control to build practical mechatronic systems.
                     </p>
-
                     <p>
                         My experience includes ROS 2 robot modeling and simulation,
                         microcontroller-based control systems, MATLAB/Simulink and
@@ -710,7 +680,6 @@
             </div>
         </section>
 
-        <!-- Technical Skills -->
         <section id="skills" data-aos="fade-up">
             <div class="section-heading">
                 <h2 class="section-title">
@@ -759,7 +728,6 @@
             </div>
         </section>
 
-        <!-- Featured Projects -->
         <section id="projects">
             <div class="project-toolbar">
                 <div class="section-heading">
@@ -785,31 +753,17 @@
             </div>
 
             <div class="projects-grid">
-
-                <!-- Graduation Project -->
                 <article class="project-card" data-category="embedded">
-                    <img
-                        src="project1.jpg"
-                        alt="Portable water purification system"
-                        class="project-img"
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Graduation+Project'"
-                    >
-
+                    <img src="project1.jpg" alt="Portable water purification system"
+                         class="project-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Graduation+Project'">
                     <div class="project-content">
                         <h3>Portable Water Purification System for Rural Areas</h3>
-                        <p class="project-type">
-                            Graduation Project · Embedded Systems &amp; IoT Team Lead
-                        </p>
-
+                        <p class="project-type">Graduation Project · Embedded Systems &amp; IoT Team Lead</p>
                         <div class="tags">
-                            <span>ESP32</span>
-                            <span>Embedded Control</span>
-                            <span>Sensors</span>
-                            <span>IoT</span>
-                            <span>Renewable Energy</span>
+                            <span>ESP32</span><span>Embedded Control</span>
+                            <span>Sensors</span><span>IoT</span><span>Renewable Energy</span>
                         </div>
-
                         <p>
                             Led the embedded systems and IoT work for an automated
                             reverse-osmosis water purification system. Integrated pH,
@@ -821,28 +775,17 @@
                     </div>
                 </article>
 
-                <!-- ACC with AEB -->
                 <article class="project-card" data-category="automotive">
-                    <img
-                        src="project2.jpg"
-                        alt="Adaptive cruise control and emergency braking model"
-                        class="project-img"
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=ACC+with+AEB'"
-                    >
-
+                    <img src="project2.jpg" alt="Adaptive cruise control and emergency braking model"
+                         class="project-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=ACC+with+AEB'">
                     <div class="project-content">
                         <h3>Adaptive Cruise Control (ACC) with Autonomous Emergency Braking</h3>
                         <p class="project-type">Automotive Model-Based Development · ADAS</p>
-
                         <div class="tags">
-                            <span>MATLAB</span>
-                            <span>Simulink</span>
-                            <span>Stateflow</span>
-                            <span>MIL</span>
-                            <span>Embedded Coder</span>
+                            <span>MATLAB</span><span>Simulink</span><span>Stateflow</span>
+                            <span>MIL</span><span>Embedded Coder</span>
                         </div>
-
                         <p>
                             Developed a longitudinal-control model with an ego-vehicle
                             dynamics plant and radar model for relative distance and
@@ -855,28 +798,18 @@
                     </div>
                 </article>
 
-                <!-- Battery Management System -->
                 <article class="project-card" data-category="automotive">
-                    <img
-                        src="project3.jpg"
-                        alt="Electric vehicle battery management system"
-                        class="project-img"
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Battery+Management+System'"
-                    >
-
+                    <img src="project3.jpg" alt="Electric vehicle battery management system"
+                         class="project-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Battery+Management+System'">
                     <div class="project-content">
                         <h3>Battery Management System for Electric Vehicles</h3>
                         <p class="project-type">Automotive Model-Based Development</p>
-
                         <div class="tags">
-                            <span>Simulink</span>
-                            <span>Stateflow</span>
-                            <span>SOC Estimation</span>
-                            <span>MIL/SIL</span>
+                            <span>Simulink</span><span>Stateflow</span>
+                            <span>SOC Estimation</span><span>MIL/SIL</span>
                             <span>Embedded Coder</span>
                         </div>
-
                         <p>
                             Built a multi-rate BMS model with initialization, standby,
                             charging, driving, and fault modes. Implemented voltage
@@ -889,28 +822,17 @@
                     </div>
                 </article>
 
-                <!-- ROS 2 Robot -->
                 <article class="project-card" data-category="robotics">
-                    <img
-                        src="project4.jpg"
-                        alt="ROS 2 differential-drive robot in simulation"
-                        class="project-img"
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=ROS+2+Robot'"
-                    >
-
+                    <img src="project4.jpg" alt="ROS 2 differential-drive robot in simulation"
+                         class="project-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=ROS+2+Robot'">
                     <div class="project-content">
                         <h3>Obstacle Avoidance Robot</h3>
                         <p class="project-type">ROS 2 Robot Modeling &amp; Simulation</p>
-
                         <div class="tags">
-                            <span>ROS 2</span>
-                            <span>URDF</span>
-                            <span>Gazebo Sim</span>
-                            <span>RViz</span>
-                            <span>LiDAR</span>
+                            <span>ROS 2</span><span>URDF</span><span>Gazebo Sim</span>
+                            <span>RViz</span><span>LiDAR</span>
                         </div>
-
                         <p>
                             Created a URDF model for a two-wheel differential-drive
                             robot with a caster wheel and LiDAR sensor. Built a
@@ -923,27 +845,16 @@
                     </div>
                 </article>
 
-                <!-- Drone and Wireless Control -->
                 <article class="project-card" data-category="embedded">
-                    <img
-                        src="project5.jpg"
-                        alt="Drone and wireless control system"
-                        class="project-img"
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Drone+and+Wireless+Control'"
-                    >
-
+                    <img src="project5.jpg" alt="Drone and wireless control system"
+                         class="project-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Drone+and+Wireless+Control'">
                     <div class="project-content">
                         <h3>Drone and Wireless Control Systems</h3>
                         <p class="project-type">Wireless Control &amp; Microcontrollers</p>
-
                         <div class="tags">
-                            <span>Arduino</span>
-                            <span>APM</span>
-                            <span>NRF24L01</span>
-                            <span>RF</span>
+                            <span>Arduino</span><span>APM</span><span>NRF24L01</span><span>RF</span>
                         </div>
-
                         <p>
                             Built and calibrated an APM-based aerial-photography
                             drone. Developed a wireless joystick using Arduino Nano
@@ -952,26 +863,16 @@
                     </div>
                 </article>
 
-                <!-- Dishwasher Control Card -->
                 <article class="project-card" data-category="embedded">
-                    <img
-                        src="project6.jpg"
-                        alt="Dishwasher embedded control board"
-                        class="project-img"
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Dishwasher+Control+Card'"
-                    >
-
+                    <img src="project6.jpg" alt="Dishwasher embedded control board"
+                         class="project-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Dishwasher+Control+Card'">
                     <div class="project-content">
                         <h3>Dishwasher Control Card</h3>
                         <p class="project-type">Microcontroller-Based Control &amp; PCB Design</p>
-
                         <div class="tags">
-                            <span>ATmega328P</span>
-                            <span>Embedded C</span>
-                            <span>PCB Design</span>
+                            <span>ATmega328P</span><span>Embedded C</span><span>PCB Design</span>
                         </div>
-
                         <p>
                             Designed a custom control PCB around an ATmega328P for
                             control of pumps, heaters, sensors, and status indicators.
@@ -981,26 +882,16 @@
                     </div>
                 </article>
 
-                <!-- Adaptive Window Opening -->
                 <article class="project-card" data-category="embedded">
-                    <img
-                        src="project7.jpg"
-                        alt="Automatic window control system"
-                        class="project-img"
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Adaptive+Window+System'"
-                    >
-
+                    <img src="project7.jpg" alt="Automatic window control system"
+                         class="project-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Adaptive+Window+System'">
                     <div class="project-content">
                         <h3>Adaptive Window Opening System</h3>
                         <p class="project-type">Sensor-Based Control</p>
-
                         <div class="tags">
-                            <span>Arduino</span>
-                            <span>MATLAB/Simulink</span>
-                            <span>DSP</span>
+                            <span>Arduino</span><span>MATLAB/Simulink</span><span>DSP</span>
                         </div>
-
                         <p>
                             Developed an automatic window-opening controller using
                             Arduino and MATLAB/Simulink. Applied digital
@@ -1010,26 +901,16 @@
                     </div>
                 </article>
 
-                <!-- Smart Home Automation -->
                 <article class="project-card" data-category="embedded">
-                    <img
-                        src="project8.jpg"
-                        alt="Microcontroller-based smart home system"
-                        class="project-img"
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Smart+Home+Automation'"
-                    >
-
+                    <img src="project8.jpg" alt="Microcontroller-based smart home system"
+                         class="project-img" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Smart+Home+Automation'">
                     <div class="project-content">
                         <h3>Smart Home Automation System</h3>
                         <p class="project-type">Microcontroller-Based Automation</p>
-
                         <div class="tags">
-                            <span>ATmega32</span>
-                            <span>Embedded C</span>
-                            <span>Sensors</span>
+                            <span>ATmega32</span><span>Embedded C</span><span>Sensors</span>
                         </div>
-
                         <p>
                             Developed a microcontroller-based system for lighting,
                             door access, temperature monitoring, and gas detection,
@@ -1038,18 +919,15 @@
                         </p>
                     </div>
                 </article>
-
             </div>
 
             <p class="project-note">
-                Portfolio tip: replace the sample project images with your own
-                hardware photos, Gazebo screenshots, Simulink models, Stateflow
-                diagrams, and test plots. Only describe features you have actually
-                implemented and verified.
+                Replace the sample project images with your own hardware photos,
+                Gazebo screenshots, Simulink models, Stateflow diagrams, and test plots.
+                Only describe features you have actually implemented and verified.
             </p>
         </section>
 
-        <!-- Experience and Leadership -->
         <section id="experience" data-aos="fade-up">
             <div class="section-heading">
                 <h2 class="section-title">
@@ -1060,27 +938,20 @@
             <div class="timeline-item">
                 <h3>Vice Leader &amp; Leader of Electric Systems</h3>
                 <span class="date">NCT Racing Team | Oct 2025 – Jul 2026</span>
-
                 <p>
                     Led the electrical and embedded systems team, contributing to
                     control-unit integration, power distribution, and communication
                     systems. Coordinated PCB integration, wiring, real-time data
                     acquisition, and vehicle testing for competition readiness.
                 </p>
-
-                <img
-                    src="racing-team.jpg"
-                    alt="NCT Racing Team"
-                    class="experience-img"
-                    loading="lazy"
-                    onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Racing+Team'"
-                >
+                <img src="racing-team.jpg" alt="NCT Racing Team"
+                     class="experience-img" loading="lazy"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/700x400?text=Racing+Team'">
             </div>
 
             <div class="timeline-item">
                 <h3>Automotive Control Trainee</h3>
                 <span class="date">Elgeuyshi Motors | Jun 2025</span>
-
                 <p>
                     Assisted with vehicle diagnostics, electrical-system testing,
                     and troubleshooting of automotive control systems.
@@ -1088,7 +959,6 @@
             </div>
         </section>
 
-        <!-- Education and Training -->
         <section id="education" data-aos="fade-up">
             <div class="section-heading">
                 <h2 class="section-title">
@@ -1152,12 +1022,10 @@
             </div>
         </section>
 
-        <!-- Contact -->
         <section id="contact" class="contact-panel" data-aos="fade-up">
             <h2 class="section-title">
                 <i class="fas fa-paper-plane"></i> Let's Connect
             </h2>
-
             <p>
                 Interested in robotics, embedded systems, or automotive model-based
                 development opportunities? Feel free to get in touch.
@@ -1167,18 +1035,13 @@
                 <a class="button button-primary" href="mailto:marwansaad672@gmail.com">
                     <i class="fas fa-envelope"></i> Email Me
                 </a>
-
-                <a
-                    class="button button-outline"
-                    href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <a class="button button-outline"
+                   href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
+                   target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
             </div>
         </section>
-
     </main>
 
     <footer>
@@ -1188,9 +1051,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script>
-        // Initialize scroll animations when the animation library is available.
         if (window.AOS) {
             AOS.init({
                 once: true,
@@ -1202,7 +1063,6 @@
             });
         }
 
-        // Project category filters.
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
 
@@ -1226,7 +1086,6 @@
             });
         });
 
-        // Keep the footer year current.
         document.getElementById('year').textContent =
             new Date().getFullYear();
     </script>
