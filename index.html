@@ -4,35 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Marwan Ibrahim — Mechatronics Technologist specializing in embedded systems, model-based design, automotive control, and robotics.">
+
+    <meta name="description" content="Marwan Ibrahim's portfolio showcasing mechatronics, automotive control systems, robotics, embedded systems, MATLAB/Simulink, and engineering projects.">
     <meta name="author" content="Marwan Ibrahim">
+
     <title>Marwan Ibrahim | Mechatronics Technologist</title>
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- AOS Animation Library -->
+    <!-- AOS animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================= */
+
         :root {
-            --primary: #641e32;
-            --primary-dark: #421322;
-            --primary-light: #87334b;
-            --gold: #d6ad60;
-            --gold-light: #f0d89d;
-            --background: #f8f7f5;
+            --burgundy: #650d20;
+            --burgundy-dark: #390712;
+            --burgundy-light: #861c35;
+            --gold: #d8ad55;
+            --gold-light: #f0d28e;
+            --background: #fffdfb;
             --surface: #ffffff;
-            --text: #29252a;
-            --muted: #706a70;
-            --border: #e9e1e3;
-            --shadow: 0 12px 35px rgba(50, 20, 32, 0.09);
-            --radius: 16px;
+            --surface-soft: #f8f4f2;
+            --text: #30252a;
+            --text-light: #766970;
+            --border: #eadfe2;
+            --shadow: 0 12px 35px rgba(57, 7, 18, 0.09);
+            --transition: 0.3s ease;
         }
 
         * {
@@ -43,25 +51,32 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 85px;
+            scroll-padding-top: 90px;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--background);
             color: var(--text);
+            background: var(--background);
             line-height: 1.7;
             overflow-x: hidden;
         }
 
+        body,
+        button,
+        input,
+        textarea {
+            font-family: 'Poppins', sans-serif;
+        }
+
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
         img {
-            display: block;
             max-width: 100%;
+            display: block;
         }
 
         button,
@@ -70,65 +85,105 @@
             font: inherit;
         }
 
+        button {
+            cursor: pointer;
+        }
+
         .container {
-            width: min(1160px, 90%);
+            width: min(1140px, 90%);
             margin: 0 auto;
         }
 
-        .section {
-            padding: 95px 0;
+        section {
+            padding: 100px 0;
         }
 
         .section-heading {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 55px;
         }
 
         .section-heading .eyebrow {
             display: inline-block;
-            color: var(--primary-light);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.76rem;
+            color: var(--burgundy);
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.78rem;
             margin-bottom: 10px;
         }
 
         .section-heading h2 {
-            color: var(--primary-dark);
-            font-family: 'Montserrat', sans-serif;
             font-size: clamp(2rem, 4vw, 2.8rem);
-            line-height: 1.2;
-            margin-bottom: 14px;
+            line-height: 1.25;
+            color: var(--burgundy-dark);
+            margin-bottom: 15px;
         }
 
         .section-heading p {
-            color: var(--muted);
             max-width: 680px;
             margin: 0 auto;
+            color: var(--text-light);
         }
 
-        .gold-line {
-            width: 65px;
-            height: 4px;
+        .gold-text {
+            color: var(--gold);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 25px;
+            border-radius: 6px;
+            border: 2px solid transparent;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
             background: var(--gold);
-            border-radius: 20px;
-            margin: 18px auto 0;
+            color: var(--burgundy-dark);
+            border-color: var(--gold);
         }
 
-        /* Navigation */
+        .btn-primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            transform: translateY(-3px);
+        }
 
-        header {
+        .btn-outline {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.7);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            color: var(--burgundy-dark);
+            background: white;
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
             position: fixed;
             inset: 0 0 auto;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 253, 251, 0.97);
+            border-bottom: 1px solid rgba(101, 13, 32, 0.08);
             backdrop-filter: blur(12px);
-            box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
         }
 
-        .navbar {
-            min-height: 76px;
+        .nav-container {
+            min-height: 78px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -136,10 +191,9 @@
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
+            color: var(--burgundy);
+            font-size: 1.35rem;
             font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--primary);
             white-space: nowrap;
         }
 
@@ -147,121 +201,135 @@
             color: var(--gold);
         }
 
-        .nav-links {
-            list-style: none;
+        .nav-menu {
             display: flex;
             align-items: center;
             gap: 27px;
+            list-style: none;
         }
 
-        .nav-links a {
-            font-size: 0.88rem;
+        .nav-link {
+            color: var(--text);
+            font-size: 0.9rem;
             font-weight: 500;
-            color: #494148;
-            transition: color 0.25s ease;
+            transition: var(--transition);
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-light);
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
         }
 
-        .nav-contact {
-            background: var(--primary);
-            color: white !important;
-            padding: 10px 18px;
-            border-radius: 8px;
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--burgundy);
         }
 
-        .nav-contact:hover {
-            background: var(--primary-dark);
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
         }
 
         .menu-toggle {
             display: none;
             border: none;
             background: transparent;
-            color: var(--primary);
+            color: var(--burgundy);
             font-size: 1.5rem;
-            cursor: pointer;
+            padding: 8px;
         }
 
-        /* Hero */
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: 690px;
-            padding: 135px 0 85px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            color: white;
-            background:
-                radial-gradient(circle at 78% 22%, rgba(214, 173, 96, 0.16), transparent 26%),
-                linear-gradient(120deg, #35101e 0%, #641e32 55%, #7a2b42 100%);
             position: relative;
             overflow: hidden;
+            color: white;
+            padding: 125px 0 80px;
+            background:
+                radial-gradient(circle at 80% 25%,
+                    rgba(216, 173, 85, 0.15), transparent 30%),
+                linear-gradient(135deg,
+                    var(--burgundy-dark), var(--burgundy) 65%, #79162e);
         }
 
         .hero::before {
             content: "";
             position: absolute;
-            width: 430px;
-            height: 430px;
-            border: 1px solid rgba(240, 216, 157, 0.2);
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(216, 173, 85, 0.2);
             border-radius: 50%;
-            right: -130px;
+            right: -160px;
             bottom: -200px;
+            pointer-events: none;
         }
 
         .hero::after {
             content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgba(240, 216, 157, 0.12);
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(216, 173, 85, 0.13);
             border-radius: 50%;
-            right: -65px;
-            bottom: -135px;
+            right: -75px;
+            bottom: -115px;
+            pointer-events: none;
         }
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1.35fr 0.75fr;
+            grid-template-columns: 1.2fr 0.8fr;
             align-items: center;
             gap: 65px;
             position: relative;
             z-index: 1;
         }
 
-        .hero-text .greeting {
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 14px;
+            border: 1px solid rgba(240, 210, 142, 0.35);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
             color: var(--gold-light);
-            font-size: 0.88rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
+            font-size: 0.82rem;
+            margin-bottom: 25px;
         }
 
-        .hero-text h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.8rem, 6vw, 4.7rem);
-            line-height: 1.1;
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.4rem);
+            line-height: 1.15;
             font-weight: 800;
-            letter-spacing: -1.8px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
-        .hero-text h2 {
-            font-size: clamp(1.2rem, 2.6vw, 1.75rem);
+        .hero h2 {
             color: var(--gold-light);
+            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
             font-weight: 500;
-            margin-bottom: 23px;
+            margin-bottom: 20px;
         }
 
-        .hero-text p {
-            max-width: 650px;
-            color: #f0e6e9;
-            font-size: 1rem;
-            line-height: 1.9;
+        .hero-description {
+            max-width: 620px;
+            color: rgba(255, 255, 255, 0.82);
             margin-bottom: 30px;
+            font-size: 1rem;
         }
 
         .hero-buttons {
@@ -271,227 +339,205 @@
             margin-bottom: 32px;
         }
 
-        .btn {
+        .hero-socials {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hero-socials a {
+            width: 42px;
+            height: 42px;
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            gap: 9px;
-            padding: 13px 23px;
-            border-radius: 8px;
-            border: 2px solid transparent;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.25s ease, background 0.25s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: #2c1a10;
-        }
-
-        .btn-gold:hover {
-            background: var(--gold-light);
-        }
-
-        .btn-outline {
-            color: white;
-            border-color: rgba(255, 255, 255, 0.65);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .social-links {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .social-links a {
-            width: 42px;
-            height: 42px;
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            display: grid;
-            place-items: center;
             color: white;
-            transition: all 0.25s ease;
+            transition: var(--transition);
         }
 
-        .social-links a:hover {
+        .hero-socials a:hover {
             background: var(--gold);
             border-color: var(--gold);
-            color: var(--primary-dark);
-            transform: translateY(-3px);
+            color: var(--burgundy-dark);
+            transform: translateY(-4px);
         }
 
-        .hero-image-wrap {
+        /* Circular profile photo */
+
+        .hero-image {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            min-width: 0;
         }
 
-        .hero-image-border {
-            width: min(350px, 100%);
-            aspect-ratio: 4 / 5;
-            padding: 9px;
-            border: 2px solid rgba(240, 216, 157, 0.7);
-            border-radius: 180px 180px 28px 28px;
-            background: rgba(255, 255, 255, 0.07);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.24);
+        .profile-image-container {
+            width: min(360px, 100%);
+            aspect-ratio: 1 / 1;
+            height: auto;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            isolation: isolate;
+            border: 5px solid var(--gold);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 0 0 12px rgba(216, 173, 85, 0.1),
+                0 25px 70px rgba(0, 0, 0, 0.25);
         }
 
-        .hero-image-border img {
+        .profile-image-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .profile-image-container img {
+            position: absolute;
+            inset: 0;
+            display: block;
             width: 100%;
             height: 100%;
+            max-width: none;
             object-fit: cover;
-            border-radius: 170px 170px 20px 20px;
+            object-position: center;
+            border-radius: 50%;
         }
 
-        /* About */
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: var(--background);
+        }
 
         .about-grid {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
-            gap: 55px;
             align-items: center;
+            gap: 65px;
         }
 
         .about-visual {
-            min-height: 390px;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            max-width: 460px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        .about-visual-card {
-            width: 90%;
-            min-height: 330px;
-            padding: 35px;
-            border-radius: var(--radius);
-            background: linear-gradient(145deg, var(--primary-dark), var(--primary));
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .about-visual img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
             box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
         }
 
-        .about-visual-card::after {
+        .about-visual::after {
             content: "";
             position: absolute;
-            width: 190px;
-            height: 190px;
-            border: 1px solid rgba(240, 216, 157, 0.25);
-            border-radius: 50%;
-            right: -65px;
-            bottom: -65px;
-        }
-
-        .about-visual-card > i {
-            color: var(--gold);
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .about-visual-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.55rem;
-            margin-bottom: 12px;
-        }
-
-        .about-visual-card p {
-            color: #f0e6e9;
-            font-size: 0.94rem;
+            inset: 18px -18px -18px 18px;
+            border: 3px solid var(--gold);
+            border-radius: 12px;
+            z-index: -1;
         }
 
         .about-content h3 {
-            color: var(--primary-dark);
-            font-family: 'Montserrat', sans-serif;
+            color: var(--burgundy);
             font-size: 1.7rem;
             margin-bottom: 18px;
+            line-height: 1.35;
         }
 
         .about-content p {
-            color: var(--muted);
+            color: var(--text-light);
             margin-bottom: 17px;
         }
 
-        .about-highlights {
+        .about-details {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 13px;
-            margin-top: 25px;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 25px 0;
         }
 
-        .highlight-item {
+        .detail-item {
             display: flex;
-            align-items: center;
-            gap: 11px;
-            padding: 14px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            font-size: 0.88rem;
-            font-weight: 500;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.92rem;
         }
 
-        .highlight-item i {
-            color: var(--primary-light);
-            font-size: 1.1rem;
+        .detail-item i {
+            color: var(--gold);
+            margin-top: 5px;
         }
 
-        /* Skills */
+        .detail-item strong {
+            color: var(--burgundy-dark);
+        }
 
-        .skills-section {
-            background: #f0ebec;
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            background: var(--surface-soft);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
 
         .skill-card {
-            background: white;
-            padding: 28px;
-            border-radius: var(--radius);
+            background: var(--surface);
             border: 1px solid var(--border);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border-radius: 12px;
+            padding: 30px 25px;
+            transition: var(--transition);
+            height: 100%;
         }
 
         .skill-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-7px);
             box-shadow: var(--shadow);
+            border-color: rgba(216, 173, 85, 0.8);
         }
 
         .skill-icon {
-            width: 55px;
-            height: 55px;
-            display: grid;
-            place-items: center;
-            background: #f5e9ec;
-            color: var(--primary);
-            border-radius: 13px;
-            font-size: 1.45rem;
-            margin-bottom: 19px;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(101, 13, 32, 0.08);
+            color: var(--burgundy);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .skill-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-dark);
-            font-size: 1.08rem;
-            margin-bottom: 14px;
+            font-size: 1.12rem;
+            color: var(--burgundy);
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 18px;
         }
 
         .skill-tags {
@@ -501,62 +547,70 @@
         }
 
         .skill-tags span {
-            padding: 6px 10px;
-            border-radius: 6px;
-            background: #f7f4f4;
-            color: #62545a;
-            font-size: 0.75rem;
+            background: #f8f0f1;
+            color: var(--burgundy);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.76rem;
+            font-weight: 500;
         }
 
-        /* Projects */
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            background: var(--background);
+        }
 
         .project-filters {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 34px;
+            margin-bottom: 38px;
         }
 
         .filter-btn {
-            padding: 9px 17px;
-            border: 1px solid #ded2d6;
-            border-radius: 30px;
+            border: 1px solid var(--border);
             background: white;
-            color: #5f5157;
-            font-size: 0.83rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
+            color: var(--text-light);
+            padding: 9px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: var(--primary);
+            background: var(--burgundy);
             color: white;
-            border-color: var(--primary);
+            border-color: var(--burgundy);
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px;
             align-items: stretch;
         }
 
         .project-card {
-            display: flex;
-            flex-direction: column;
             background: white;
             border: 1px solid var(--border);
-            border-radius: var(--radius);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(40, 20, 28, 0.035);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            min-width: 0;
         }
 
         .project-card:hover {
             transform: translateY(-7px);
             box-shadow: var(--shadow);
+            border-color: rgba(216, 173, 85, 0.75);
         }
 
         .project-card.hidden {
@@ -564,10 +618,10 @@
         }
 
         .project-image {
-            height: 205px;
-            background: #e9e1e3;
-            overflow: hidden;
+            height: 245px;
             position: relative;
+            overflow: hidden;
+            background: #f1e9e9;
         }
 
         .project-image img {
@@ -578,355 +632,394 @@
         }
 
         .project-card:hover .project-image img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         .project-category {
             position: absolute;
-            left: 14px;
-            top: 14px;
+            left: 18px;
+            top: 18px;
+            z-index: 1;
+            color: var(--burgundy-dark);
+            background: var(--gold);
+            border-radius: 5px;
             padding: 6px 11px;
-            background: rgba(255, 255, 255, 0.94);
-            color: var(--primary);
-            border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: 0.73rem;
             font-weight: 700;
         }
 
         .project-content {
-            padding: 23px;
             display: flex;
             flex-direction: column;
             flex: 1;
+            padding: 25px;
         }
 
         .project-content h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-dark);
-            font-size: 1.08rem;
-            line-height: 1.5;
+            color: var(--burgundy);
+            font-size: 1.18rem;
+            line-height: 1.45;
             margin-bottom: 12px;
         }
 
         .project-content p {
-            color: var(--muted);
-            font-size: 0.87rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
             margin-bottom: 18px;
-            flex: 1;
+        }
+
+        .project-points {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .project-points li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .project-points li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--gold);
+            font-size: 0.75rem;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
+            gap: 8px;
             margin-top: auto;
+            padding-top: 10px;
         }
 
         .project-tech span {
-            background: #f5e9ec;
-            color: var(--primary);
-            padding: 5px 8px;
-            border-radius: 5px;
-            font-size: 0.7rem;
-            font-weight: 500;
+            font-size: 0.73rem;
+            color: var(--burgundy);
+            background: #f8f0f1;
+            padding: 5px 9px;
+            border-radius: 4px;
         }
 
-        /* Experience */
+        /* =========================
+           EXPERIENCE
+        ========================= */
 
-        .experience-section {
-            background: #f0ebec;
+        .experience {
+            background: var(--surface-soft);
         }
 
-        .experience-layout {
-            display: grid;
-            grid-template-columns: 1fr 0.85fr;
-            gap: 45px;
-            align-items: start;
-        }
-
-        .timeline {
+        .experience-list {
+            max-width: 850px;
+            margin: 0 auto;
             position: relative;
-            padding-left: 30px;
         }
 
-        .timeline::before {
+        .experience-list::before {
             content: "";
             position: absolute;
-            left: 7px;
-            top: 7px;
-            bottom: 8px;
+            left: 22px;
+            top: 10px;
+            bottom: 10px;
             width: 2px;
-            background: #d8bdc5;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding: 0 0 35px 18px;
-        }
-
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
             background: var(--gold);
-            border: 3px solid var(--primary);
-            left: -29px;
-            top: 5px;
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 35px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-dot {
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            width: 26px;
+            height: 26px;
+            background: var(--burgundy);
+            border: 5px solid #f3e4c6;
+            border-radius: 50%;
             z-index: 1;
         }
 
-        .timeline-date {
-            color: var(--primary-light);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.4px;
-            margin-bottom: 7px;
+        .experience-card {
+            background: white;
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: var(--transition);
         }
 
-        .timeline-item h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-dark);
-            font-size: 1.13rem;
+        .experience-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-3px);
+        }
+
+        .experience-date {
+            display: inline-block;
+            color: var(--burgundy);
+            background: #f8f0f1;
+            padding: 5px 11px;
+            border-radius: 5px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .experience-card h3 {
+            color: var(--burgundy-dark);
+            font-size: 1.2rem;
             margin-bottom: 5px;
         }
 
-        .timeline-item h4 {
-            color: #66565e;
-            font-size: 0.9rem;
+        .experience-card h4 {
+            color: #98752f;
             font-weight: 600;
-            margin-bottom: 10px;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
         }
 
-        .timeline-item p,
-        .timeline-item li {
-            color: var(--muted);
-            font-size: 0.86rem;
+        .experience-card p,
+        .experience-card li {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        .timeline-item ul {
-            padding-left: 19px;
-            margin-top: 8px;
+        .experience-card ul {
+            padding-left: 20px;
+            margin-top: 12px;
         }
 
-        .timeline-item li {
-            margin-bottom: 6px;
-        }
-
-        .experience-image {
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: white;
-            box-shadow: var(--shadow);
-        }
-
-        .experience-image img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-
-        .experience-image-caption {
-            padding: 22px;
-        }
-
-        .experience-image-caption h3 {
-            color: var(--primary-dark);
-            font-family: 'Montserrat', sans-serif;
+        .experience-card li {
             margin-bottom: 8px;
         }
 
-        .experience-image-caption p {
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
+        /* =========================
+           CONTACT
+        ========================= */
 
-        /* Contact */
+        .contact {
+            background: var(--background);
+        }
 
         .contact-grid {
             display: grid;
             grid-template-columns: 0.85fr 1.15fr;
-            gap: 35px;
-            align-items: stretch;
-        }
-
-        .contact-info {
-            background: linear-gradient(145deg, var(--primary-dark), var(--primary));
-            color: white;
-            border-radius: var(--radius);
-            padding: 35px;
+            gap: 55px;
+            align-items: start;
         }
 
         .contact-info h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.55rem;
-            margin-bottom: 13px;
+            color: var(--burgundy);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
         }
 
         .contact-info > p {
-            color: #e7d8dd;
-            font-size: 0.9rem;
-            margin-bottom: 28px;
+            color: var(--text-light);
+            margin-bottom: 30px;
         }
 
-        .contact-detail {
+        .contact-item {
             display: flex;
-            gap: 15px;
+            gap: 16px;
             align-items: flex-start;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
         }
 
-        .contact-detail > i {
-            width: 42px;
-            height: 42px;
-            display: grid;
-            place-items: center;
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
             flex-shrink: 0;
-            color: var(--gold-light);
-            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(101, 13, 32, 0.08);
+            color: var(--burgundy);
             border-radius: 10px;
+            font-size: 1.15rem;
         }
 
-        .contact-detail h4 {
-            font-size: 0.86rem;
-            margin-bottom: 3px;
+        .contact-item h4 {
+            color: var(--burgundy-dark);
+            font-size: 0.98rem;
+            margin-bottom: 4px;
         }
 
-        .contact-detail p,
-        .contact-detail a {
-            color: #e7d8dd;
-            font-size: 0.83rem;
+        .contact-item p,
+        .contact-item a {
+            color: var(--text-light);
+            font-size: 0.9rem;
             overflow-wrap: anywhere;
         }
 
-        .contact-detail a:hover {
-            color: var(--gold-light);
+        .contact-item a:hover {
+            color: var(--burgundy);
+        }
+
+        .contact-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .contact-socials a {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--burgundy);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .contact-socials a:hover {
+            color: white;
+            background: var(--burgundy);
+            border-color: var(--burgundy);
+            transform: translateY(-3px);
         }
 
         .contact-form {
-            padding: 35px;
             background: white;
             border: 1px solid var(--border);
-            border-radius: var(--radius);
+            border-radius: 12px;
+            padding: 32px;
             box-shadow: var(--shadow);
-        }
-
-        .contact-form h3 {
-            color: var(--primary-dark);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 23px;
         }
 
         .form-row {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 15px;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
         }
 
         .form-group {
-            margin-bottom: 17px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            color: #51454b;
-            font-size: 0.82rem;
+            color: var(--burgundy-dark);
             font-weight: 600;
-            margin-bottom: 7px;
+            font-size: 0.86rem;
+            margin-bottom: 8px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 6px;
             padding: 12px 14px;
-            background: #fcfafb;
-            border: 1px solid #e3d9dd;
-            border-radius: 8px;
             outline: none;
             color: var(--text);
-            font-size: 0.87rem;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background: #fffdfd;
+            transition: var(--transition);
+            font-size: 0.9rem;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(100, 30, 50, 0.08);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(216, 173, 85, 0.15);
         }
 
         .form-group textarea {
-            min-height: 135px;
+            min-height: 150px;
             resize: vertical;
         }
 
         .contact-form .btn {
-            border: none;
+            width: 100%;
         }
 
-        .form-note {
-            margin-top: 12px;
-            color: var(--muted);
-            font-size: 0.75rem;
+        .contact-form .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
         }
 
-        /* Footer */
+        .form-status {
+            display: none;
+            margin-top: 16px;
+            padding: 12px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            overflow-wrap: anywhere;
+        }
 
-        footer {
-            background: #2e101b;
-            color: #e8dce0;
-            padding: 27px 0;
+        .form-status.success {
+            display: block;
+            background: #eaf7ee;
+            color: #1c6736;
+        }
+
+        .form-status.error {
+            display: block;
+            background: #fff0f0;
+            color: #9d1c2d;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            background: var(--burgundy-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 35px 0;
         }
 
         .footer-content {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .footer-content p {
-            font-size: 0.8rem;
+        .footer p {
+            font-size: 0.86rem;
         }
 
-        .footer-socials {
-            display: flex;
-            gap: 15px;
-        }
-
-        .footer-socials a {
-            color: #e8dce0;
-            transition: color 0.2s ease;
-        }
-
-        .footer-socials a:hover {
+        .footer strong {
             color: var(--gold-light);
         }
 
-        /* Back to top */
-
         .back-to-top {
             position: fixed;
-            right: 22px;
-            bottom: 22px;
+            right: 25px;
+            bottom: 25px;
             width: 45px;
             height: 45px;
-            display: grid;
-            place-items: center;
-            background: var(--gold);
-            color: var(--primary-dark);
+            border: none;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--burgundy-dark);
+            background: var(--gold);
             box-shadow: var(--shadow);
+            z-index: 900;
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
-            transition: all 0.25s ease;
-            z-index: 900;
+            transition: var(--transition);
         }
 
         .back-to-top.visible {
@@ -935,165 +1028,212 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
+        .back-to-top:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
 
         @media (max-width: 1000px) {
-            .nav-links {
-                gap: 16px;
-            }
-
-            .nav-links a {
-                font-size: 0.81rem;
+            .nav-menu {
+                gap: 18px;
             }
 
             .hero-content {
                 gap: 35px;
             }
 
+            .profile-image-container {
+                width: min(320px, 100%);
+            }
+
             .skills-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .projects-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+            .about-grid {
+                gap: 40px;
+            }
+
+            .contact-grid {
+                gap: 35px;
             }
         }
 
         @media (max-width: 780px) {
-            .section {
+            section {
                 padding: 75px 0;
+            }
+
+            .nav-container {
+                min-height: 70px;
             }
 
             .menu-toggle {
                 display: block;
             }
 
-            .nav-links {
+            .nav-menu {
                 position: absolute;
-                top: 76px;
+                top: 100%;
                 left: 0;
                 right: 0;
                 display: none;
                 flex-direction: column;
                 align-items: stretch;
                 gap: 0;
-                padding: 12px 5% 20px;
-                background: white;
-                box-shadow: 0 15px 20px rgba(0, 0, 0, 0.08);
+                background: var(--background);
+                border-bottom: 1px solid var(--border);
+                padding: 10px 5% 20px;
+                box-shadow: 0 15px 25px rgba(57, 7, 18, 0.08);
             }
 
-            .nav-links.open {
+            .nav-menu.open {
                 display: flex;
             }
 
-            .nav-links li {
+            .nav-menu li {
                 width: 100%;
             }
 
-            .nav-links a {
+            .nav-link {
                 display: block;
-                padding: 12px 5px;
-                font-size: 0.92rem;
+                padding: 12px 0;
             }
 
-            .nav-contact {
-                display: inline-block !important;
-                text-align: center;
-                margin-top: 5px;
+            .nav-link::after {
+                display: none;
             }
 
             .hero {
                 min-height: auto;
-                padding: 125px 0 75px;
+                padding: 120px 0 75px;
             }
 
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 45px;
             }
 
-            .hero-text {
-                order: 2;
-            }
-
-            .hero-image-wrap {
-                order: 1;
-            }
-
-            .hero-image-border {
-                width: 235px;
-            }
-
-            .hero-text p {
+            .hero-description {
                 margin-left: auto;
                 margin-right: auto;
             }
 
             .hero-buttons,
-            .social-links {
+            .hero-socials {
                 justify-content: center;
             }
 
+            .hero-image {
+                grid-row: 1;
+            }
+
+            .profile-image-container {
+                width: min(270px, 72vw);
+            }
+
             .about-grid,
-            .experience-layout,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
 
             .about-visual {
-                min-height: 300px;
+                max-width: 400px;
+                margin-bottom: 20px;
             }
 
-            .about-visual-card {
-                min-height: 280px;
+            .about-visual img {
+                height: 360px;
             }
 
-            .experience-image {
-                max-width: 560px;
-                width: 100%;
+            .about-content {
+                margin-top: 15px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
                 margin: 0 auto;
             }
 
-            .contact-info,
-            .contact-form {
-                padding: 28px;
+            .contact-info {
+                max-width: 600px;
             }
         }
 
-        @media (max-width: 540px) {
+        @media (max-width: 520px) {
             .container {
                 width: 91%;
             }
 
-            .hero-text h1 {
-                font-size: 2.55rem;
-                letter-spacing: -1px;
+            section {
+                padding: 65px 0;
             }
 
-            .hero-text h2 {
-                font-size: 1.22rem;
+            .hero h1 {
+                font-size: 2.4rem;
             }
 
-            .hero-text p {
-                font-size: 0.91rem;
+            .hero h2 {
+                font-size: 1.2rem;
             }
 
-            .btn {
-                padding: 12px 16px;
-                font-size: 0.82rem;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            .skills-grid,
-            .projects-grid {
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .profile-image-container {
+                width: min(240px, 70vw);
+            }
+
+            .section-heading {
+                margin-bottom: 38px;
+            }
+
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-highlights {
+            .about-details {
                 grid-template-columns: 1fr;
+            }
+
+            .about-visual img {
+                height: 300px;
             }
 
             .project-image {
-                height: 225px;
+                height: 210px;
+            }
+
+            .project-content {
+                padding: 21px;
+            }
+
+            .experience-list::before {
+                left: 13px;
+            }
+
+            .experience-item {
+                padding-left: 42px;
+            }
+
+            .experience-dot {
+                left: 1px;
+            }
+
+            .experience-card {
+                padding: 22px;
             }
 
             .form-row {
@@ -1101,13 +1241,18 @@
                 gap: 0;
             }
 
+            .contact-form {
+                padding: 23px 18px;
+            }
+
             .footer-content {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .section-heading {
-                margin-bottom: 35px;
+            .back-to-top {
+                right: 15px;
+                bottom: 15px;
             }
         }
 
@@ -1128,57 +1273,85 @@
 
 <body>
 
-    <!-- Navigation -->
-    <header>
-        <div class="container navbar">
-            <a href="#home" class="logo">Marwan<span>.</span></a>
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                Marwan<span>.</span>
+            </a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navMenu">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact" class="nav-contact">Contact Me</a></li>
-            </ul>
+            <nav aria-label="Main navigation">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a class="nav-link active" href="#home">Home</a></li>
+                    <li><a class="nav-link" href="#about">About</a></li>
+                    <li><a class="nav-link" href="#skills">Skills</a></li>
+                    <li><a class="nav-link" href="#projects">Projects</a></li>
+                    <li><a class="nav-link" href="#experience">Experience</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
         </div>
     </header>
 
+
     <main>
-        <!-- Hero -->
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
         <section class="hero" id="home">
             <div class="container hero-content">
-                <div class="hero-text" data-aos="fade-right">
-                    <div class="greeting">Hello, I'm</div>
 
-                    <h1>Marwan Ibrahim</h1>
+                <div class="hero-text" data-aos="fade-right">
+
+                    <div class="hero-tag">
+                        <i class="fas fa-microchip"></i>
+                        Mechatronics & Automation
+                    </div>
+
+                    <h1>
+                        Hi, I'm <span class="gold-text">Marwan Ibrahim</span>
+                    </h1>
 
                     <h2>Mechatronics Technologist</h2>
 
-                    <p>
-                        I work across embedded systems, model-based design, automotive
-                        control systems, and robotics. I enjoy turning engineering
-                        concepts into practical systems through simulation, control
-                        development, and hands-on technical projects.
+                    <p class="hero-description">
+                        I work across mechatronics, automotive control systems,
+                        embedded systems, robotics, and automation. I enjoy
+                        turning engineering concepts into practical systems
+                        through design, simulation, programming, and testing.
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-gold">
-                            <i class="fas fa-code"></i> Explore My Projects
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i>
+                            Explore My Projects
                         </a>
 
                         <a href="#contact" class="btn btn-outline">
-                            <i class="fas fa-envelope"></i> Get In Touch
+                            <i class="fas fa-envelope"></i>
+                            Contact Me
                         </a>
                     </div>
 
-                    <div class="social-links">
+                    <div class="hero-socials">
                         <a href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
-                           target="_blank" rel="noopener noreferrer"
+                           target="_blank"
+                           rel="noopener noreferrer"
                            aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
@@ -1187,250 +1360,351 @@
                            aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
+
+                        <a href="tel:01015093654"
+                           aria-label="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="hero-image" data-aos="zoom-in">
+                    <div class="profile-image-container">
+                        <img src="profile.jpg"
+                             alt="Portrait of Marwan Ibrahim">
                     </div>
                 </div>
 
-                <div class="hero-image-wrap" data-aos="fade-left">
-                    <div class="hero-image-border">
-                        <img src="profile.jpg"
-                             alt="Portrait of Marwan Ibrahim"
-                             onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(145deg,#87334b,#35101e)';">
-                    </div>
-                </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section class="section" id="about">
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="about" id="about">
             <div class="container">
+
                 <div class="section-heading" data-aos="fade-up">
                     <span class="eyebrow">About Me</span>
-                    <h2>Engineering Ideas Into Reality</h2>
+                    <h2>Engineering Ideas Into <span class="gold-text">Reality</span></h2>
                     <p>
-                        A practical approach to mechatronics, control, and intelligent systems.
+                        A multidisciplinary engineering background focused on
+                        practical design, control, and intelligent systems.
                     </p>
-                    <div class="gold-line"></div>
                 </div>
 
                 <div class="about-grid">
+
                     <div class="about-visual" data-aos="fade-right">
-                        <div class="about-visual-card">
-                            <i class="fas fa-gears"></i>
-                            <h3>Design. Simulate. Develop.</h3>
-                            <p>
-                                Combining mechanical, electrical, and software concepts
-                                to build and understand integrated engineering systems.
-                            </p>
-                        </div>
+                        <img src="racing-team.jpg"
+                             alt="Engineering and electric systems team experience"
+                             loading="lazy">
                     </div>
 
                     <div class="about-content" data-aos="fade-left">
-                        <h3>Mechatronics Technologist</h3>
+
+                        <h3>Mechatronics, Control Systems & Embedded Technology</h3>
 
                         <p>
-                            My technical interests include embedded systems, model-based
-                            development, automotive control, and robotics. I use
-                            engineering tools and simulation environments to develop,
-                            evaluate, and improve system designs.
+                            I'm Marwan Ibrahim Mohammed Saad, a Mechatronics
+                            Technologist based in Cairo, Egypt. My interests
+                            include automotive control, robotics, embedded
+                            electronics, system modeling, and automation.
                         </p>
 
                         <p>
-                            My projects include vehicle control features, battery
-                            management concepts, ROS 2 robot simulation, and a
-                            renewable-energy-powered water purification system.
-                            I also value teamwork, technical leadership, and continuous
-                            learning through practical engineering work.
+                            Through engineering projects and practical training,
+                            I have worked with tools such as MATLAB/Simulink,
+                            Stateflow, ROS 2, Gazebo, Arduino, and embedded
+                            communication systems.
                         </p>
 
-                        <div class="about-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-microchip"></i>
-                                <span>Embedded Systems</span>
+                        <p>
+                            I value structured problem-solving, system
+                            integration, simulation-based validation, and
+                            continuous technical development.
+                        </p>
+
+                        <div class="about-details">
+
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <div>
+                                    <strong>Name</strong><br>
+                                    Marwan Ibrahim
+                                </div>
                             </div>
 
-                            <div class="highlight-item">
-                                <i class="fas fa-car"></i>
-                                <span>Automotive Control</span>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location</strong><br>
+                                    Cairo, Egypt
+                                </div>
                             </div>
 
-                            <div class="highlight-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Robotics & ROS 2</span>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email</strong><br>
+                                    <a href="mailto:marwansaad672@gmail.com">
+                                        marwansaad672@gmail.com
+                                    </a>
+                                </div>
                             </div>
 
-                            <div class="highlight-item">
-                                <i class="fas fa-diagram-project"></i>
-                                <span>Model-Based Design</span>
+                            <div class="detail-item">
+                                <i class="fas fa-cogs"></i>
+                                <div>
+                                    <strong>Focus</strong><br>
+                                    Mechatronics & Control
+                                </div>
                             </div>
+
                         </div>
+
+                        <a href="#contact" class="btn btn-primary">
+                            Let's Connect
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills -->
-        <section class="section skills-section" id="skills">
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
+        <section class="skills" id="skills">
             <div class="container">
+
                 <div class="section-heading" data-aos="fade-up">
                     <span class="eyebrow">Technical Expertise</span>
-                    <h2>Skills & Technologies</h2>
+                    <h2>My <span class="gold-text">Skills</span></h2>
                     <p>
-                        Tools and technical areas relevant to my engineering projects.
+                        Tools and technical areas I use across engineering
+                        design, simulation, embedded systems, and automation.
                     </p>
-                    <div class="gold-line"></div>
                 </div>
 
                 <div class="skills-grid">
+
                     <article class="skill-card" data-aos="fade-up">
                         <div class="skill-icon">
-                            <i class="fas fa-car-side"></i>
+                            <i class="fas fa-car"></i>
                         </div>
-                        <h3>Automotive Control & MBD</h3>
+                        <h3>Automotive Control Systems</h3>
+                        <p>
+                            Modeling and development of vehicle control
+                            functions and safety-related logic.
+                        </p>
+                        <div class="skill-tags">
+                            <span>ACC</span>
+                            <span>AEB</span>
+                            <span>Vehicle Dynamics</span>
+                            <span>Control Logic</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card" data-aos="fade-up" data-aos-delay="70">
+                        <div class="skill-icon">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <h3>Model-Based Design</h3>
+                        <p>
+                            Developing, simulating, and testing system models
+                            and control algorithms.
+                        </p>
                         <div class="skill-tags">
                             <span>MATLAB</span>
                             <span>Simulink</span>
                             <span>Stateflow</span>
-                            <span>Vehicle Dynamics</span>
-                            <span>Model-Based Design</span>
-                            <span>MIL Testing</span>
+                            <span>Model Testing</span>
                         </div>
                     </article>
 
-                    <article class="skill-card" data-aos="fade-up" data-aos-delay="80">
+                    <article class="skill-card" data-aos="fade-up" data-aos-delay="140">
                         <div class="skill-icon">
                             <i class="fas fa-microchip"></i>
                         </div>
                         <h3>Embedded Systems</h3>
+                        <p>
+                            Microcontroller projects, peripheral integration,
+                            and communication between electronic modules.
+                        </p>
                         <div class="skill-tags">
-                            <span>Embedded C</span>
-                            <span>C Programming</span>
                             <span>Arduino</span>
-                            <span>Embedded Coder</span>
-                            <span>Code Generation</span>
-                        </div>
-                    </article>
-
-                    <article class="skill-card" data-aos="fade-up" data-aos-delay="160">
-                        <div class="skill-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>Robotics & Simulation</h3>
-                        <div class="skill-tags">
-                            <span>ROS 2</span>
-                            <span>Gazebo</span>
-                            <span>URDF</span>
-                            <span>RViz</span>
-                            <span>LiDAR</span>
-                            <span>Robot Simulation</span>
+                            <span>C/C++</span>
+                            <span>Embedded Logic</span>
+                            <span>NRF24L01</span>
                         </div>
                     </article>
 
                     <article class="skill-card" data-aos="fade-up">
                         <div class="skill-icon">
-                            <i class="fas fa-car-battery"></i>
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <h3>Battery Management</h3>
+                        <h3>Robotics & Simulation</h3>
+                        <p>
+                            Robot modeling, simulated environments, sensor
+                            integration, and development workflows.
+                        </p>
                         <div class="skill-tags">
-                            <span>EV BMS</span>
-                            <span>Stateflow</span>
-                            <span>State of Charge</span>
-                            <span>Cell Balancing</span>
+                            <span>ROS 2</span>
+                            <span>Gazebo</span>
+                            <span>URDF</span>
+                            <span>LiDAR</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card" data-aos="fade-up" data-aos-delay="70">
+                        <div class="skill-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Electric Systems</h3>
+                        <p>
+                            Electric system integration, battery management
+                            concepts, and electrical project development.
+                        </p>
+                        <div class="skill-tags">
+                            <span>BMS</span>
+                            <span>Battery Monitoring</span>
+                            <span>Electric Systems</span>
                             <span>Safety Logic</span>
                         </div>
                     </article>
 
-                    <article class="skill-card" data-aos="fade-up" data-aos-delay="80">
+                    <article class="skill-card" data-aos="fade-up" data-aos-delay="140">
                         <div class="skill-icon">
-                            <i class="fas fa-satellite-dish"></i>
+                            <i class="fas fa-drafting-compass"></i>
                         </div>
-                        <h3>Control & Communication</h3>
+                        <h3>Mechatronics & Automation</h3>
+                        <p>
+                            Combining mechanical components, electronics,
+                            sensing, and control into integrated systems.
+                        </p>
                         <div class="skill-tags">
-                            <span>Wireless Control</span>
-                            <span>NRF24L01</span>
-                            <span>Arduino Nano</span>
-                            <span>Control Systems</span>
+                            <span>System Integration</span>
+                            <span>Sensors</span>
+                            <span>Actuators</span>
+                            <span>Automation</span>
                         </div>
                     </article>
 
-                    <article class="skill-card" data-aos="fade-up" data-aos-delay="160">
-                        <div class="skill-icon">
-                            <i class="fas fa-users-gear"></i>
-                        </div>
-                        <h3>Professional Skills</h3>
-                        <div class="skill-tags">
-                            <span>Technical Leadership</span>
-                            <span>Teamwork</span>
-                            <span>Problem Solving</span>
-                            <span>System Integration</span>
-                            <span>Technical Documentation</span>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
-        <section class="section" id="projects">
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section class="projects" id="projects">
             <div class="container">
+
                 <div class="section-heading" data-aos="fade-up">
                     <span class="eyebrow">Selected Work</span>
-                    <h2>Projects & Applications</h2>
+                    <h2>My <span class="gold-text">Projects</span></h2>
                     <p>
-                        A selection of projects across automotive systems, embedded
-                        development, robotics, and control.
+                        A selection of projects covering automotive controls,
+                        battery management, robotics, embedded systems,
+                        renewable energy, and smart automation.
                     </p>
-                    <div class="gold-line"></div>
                 </div>
 
                 <div class="project-filters" data-aos="fade-up">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="automotive">Automotive</button>
-                    <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
-                    <button class="filter-btn" data-filter="robotics">Robotics</button>
-                    <button class="filter-btn" data-filter="control">Control & Automation</button>
+                    <button class="filter-btn active" data-filter="all" type="button">
+                        All Projects
+                    </button>
+                    <button class="filter-btn" data-filter="control" type="button">
+                        Control Systems
+                    </button>
+                    <button class="filter-btn" data-filter="robotics" type="button">
+                        Robotics
+                    </button>
+                    <button class="filter-btn" data-filter="embedded" type="button">
+                        Embedded Systems
+                    </button>
+                    <button class="filter-btn" data-filter="automation" type="button">
+                        Automation
+                    </button>
                 </div>
 
-                <div class="projects-grid">
+                <div class="projects-grid" id="projectsGrid">
 
                     <!-- Project 1 -->
-                    <article class="project-card" data-category="control" data-aos="fade-up">
+                    <article class="project-card"
+                             data-category="automation"
+                             data-aos="fade-up">
+
                         <div class="project-image">
                             <img src="project1.jpg"
-                                 alt="Portable renewable-energy-powered water purification project"
+                                 alt="Portable renewable-energy water purification system"
                                  loading="lazy">
-                            <span class="project-category">Sustainability</span>
+                            <span class="project-category">Renewable Energy</span>
                         </div>
+
                         <div class="project-content">
-                            <h3>Portable Water Purification System</h3>
+                            <h3>Portable Water Purification System for Rural Areas</h3>
+
                             <p>
-                                A portable water purification concept for rural areas,
-                                designed around renewable energy to support sustainable
-                                access to clean water.
+                                A portable water purification concept designed
+                                for rural areas, integrating water treatment
+                                with renewable energy to support access to
+                                cleaner water.
                             </p>
+
+                            <ul class="project-points">
+                                <li>Designed around portability and practical use.</li>
+                                <li>Integrates a renewable-energy approach.</li>
+                                <li>Focuses on water treatment for rural needs.</li>
+                            </ul>
+
                             <div class="project-tech">
                                 <span>Renewable Energy</span>
-                                <span>System Design</span>
-                                <span>Sustainability</span>
+                                <span>Water Treatment</span>
+                                <span>Mechatronics</span>
                             </div>
                         </div>
                     </article>
 
+
                     <!-- Project 2 -->
-                    <article class="project-card" data-category="automotive" data-aos="fade-up" data-aos-delay="60">
+                    <article class="project-card"
+                             data-category="control"
+                             data-aos="fade-up"
+                             data-aos-delay="70">
+
                         <div class="project-image">
                             <img src="project2.jpg"
                                  alt="Adaptive cruise control and automatic emergency braking model"
                                  loading="lazy">
-                            <span class="project-category">Automotive</span>
+                            <span class="project-category">Automotive Control</span>
                         </div>
+
                         <div class="project-content">
-                            <h3>Adaptive Cruise Control with AEB</h3>
+                            <h3>Adaptive Cruise Control with Automatic Emergency Braking</h3>
+
                             <p>
-                                Developed a MATLAB/Simulink longitudinal control model
-                                incorporating vehicle dynamics, radar-based relative
-                                distance and velocity, dynamic headway, and Stateflow
-                                modes for cruise control, distance control, and emergency braking.
+                                A MATLAB/Simulink vehicle control model combining
+                                adaptive cruise control with automatic emergency
+                                braking to regulate speed and following distance.
                             </p>
+
+                            <ul class="project-points">
+                                <li>Modeled longitudinal vehicle behavior.</li>
+                                <li>Used relative distance and velocity inputs to represent radar information.</li>
+                                <li>Implemented cruise, distance-control, and emergency-braking modes using Stateflow.</li>
+                                <li>Performed model-in-the-loop testing and generated ANSI C code using Embedded Coder.</li>
+                            </ul>
+
                             <div class="project-tech">
                                 <span>MATLAB</span>
                                 <span>Simulink</span>
@@ -1440,73 +1714,114 @@
                         </div>
                     </article>
 
+
                     <!-- Project 3 -->
-                    <article class="project-card" data-category="automotive embedded" data-aos="fade-up" data-aos-delay="120">
+                    <article class="project-card"
+                             data-category="control"
+                             data-aos="fade-up">
+
                         <div class="project-image">
                             <img src="project3.jpg"
-                                 alt="Electric vehicle battery management system project"
+                                 alt="Electric vehicle battery management system model"
                                  loading="lazy">
-                            <span class="project-category">EV Systems</span>
+                            <span class="project-category">Battery Management</span>
                         </div>
+
                         <div class="project-content">
                             <h3>Electric Vehicle Battery Management System</h3>
+
                             <p>
-                                Designed a multi-rate Simulink/Stateflow BMS model with
-                                safety disconnect logic, current limits, Coulomb-counting
-                                state-of-charge estimation, and passive balancing for a
-                                three-cell battery pack.
+                                A multi-rate battery management model built
+                                with Simulink and Stateflow for monitoring
+                                battery state and implementing protective
+                                control logic.
                             </p>
+
+                            <ul class="project-points">
+                                <li>Implemented safety-disconnect logic and dynamic current limits.</li>
+                                <li>Updated current limits every 100 ms and Coulomb-counting SOC every 200 ms.</li>
+                                <li>Implemented passive balancing for a three-cell pack when voltage differences exceeded 10 mV.</li>
+                                <li>Configured a fixed-step simulation at 0.05 seconds and performed MIL/SIL testing with signal comparison.</li>
+                                <li>Generated ERT C/C++ code using Embedded Coder.</li>
+                            </ul>
+
                             <div class="project-tech">
                                 <span>Simulink</span>
                                 <span>Stateflow</span>
                                 <span>BMS</span>
-                                <span>MIL/SIL</span>
+                                <span>SOC Estimation</span>
+                                <span>ERT</span>
                             </div>
                         </div>
                     </article>
 
+
                     <!-- Project 4 -->
-                    <article class="project-card" data-category="robotics" data-aos="fade-up">
+                    <article class="project-card"
+                             data-category="robotics"
+                             data-aos="fade-up"
+                             data-aos-delay="70">
+
                         <div class="project-image">
                             <img src="project4.jpg"
-                                 alt="Mobile robot simulation for obstacle avoidance development"
+                                 alt="ROS 2 and Gazebo obstacle avoidance robot simulation"
                                  loading="lazy">
                             <span class="project-category">Robotics</span>
                         </div>
+
                         <div class="project-content">
-                            <h3>Obstacle Avoidance Robot Using ROS 2</h3>
+                            <h3>Obstacle Avoidance Robot Using ROS 2 and Gazebo</h3>
+
                             <p>
-                                Built a simulated mobile robot platform with a custom
-                                URDF, differential-drive configuration, LiDAR, and a
-                                custom Gazebo world. The simulation provides a foundation
-                                for developing and testing obstacle-avoidance behavior.
+                                A simulated differential-drive robot platform
+                                designed to support robotics development and
+                                future obstacle-avoidance testing.
                             </p>
+
+                            <ul class="project-points">
+                                <li>Created a custom robot model using URDF.</li>
+                                <li>Configured differential-drive wheels and a caster wheel.</li>
+                                <li>Integrated a LiDAR sensor into a Gazebo environment.</li>
+                                <li>Established a launch workflow for simulation and further algorithm development.</li>
+                            </ul>
+
                             <div class="project-tech">
                                 <span>ROS 2</span>
                                 <span>Gazebo</span>
                                 <span>URDF</span>
                                 <span>LiDAR</span>
-                                <span>RViz</span>
                             </div>
                         </div>
                     </article>
 
+
                     <!-- Project 5 -->
-                    <article class="project-card" data-category="embedded control" data-aos="fade-up" data-aos-delay="60">
+                    <article class="project-card"
+                             data-category="embedded"
+                             data-aos="fade-up">
+
                         <div class="project-image">
                             <img src="project5.jpg"
-                                 alt="Drone control and wireless communication system"
+                                 alt="APM-based drone with wireless joystick control"
                                  loading="lazy">
-                            <span class="project-category">Wireless Control</span>
+                            <span class="project-category">Embedded Systems</span>
                         </div>
+
                         <div class="project-content">
-                            <h3>Drone Control & Wireless Communication</h3>
+                            <h3>Wireless Joystick-Controlled Drone</h3>
+
                             <p>
-                                An APM-based aerial photography drone control setup
-                                incorporating an Arduino Nano joystick interface and
-                                NRF24L01 radio modules for wireless command transmission
-                                and remote operation.
+                                A drone-control project using an APM-based
+                                flight controller, an Arduino Nano joystick
+                                interface, and wireless communication.
                             </p>
+
+                            <ul class="project-points">
+                                <li>Used an Arduino Nano to read joystick inputs.</li>
+                                <li>Integrated NRF24L01 wireless communication.</li>
+                                <li>Focused on control-interface and electronic-system integration.</li>
+                            </ul>
+
                             <div class="project-tech">
                                 <span>APM</span>
                                 <span>Arduino Nano</span>
@@ -1516,71 +1831,114 @@
                         </div>
                     </article>
 
+
                     <!-- Project 6 -->
-                    <article class="project-card" data-category="embedded control" data-aos="fade-up" data-aos-delay="120">
+                    <article class="project-card"
+                             data-category="embedded"
+                             data-aos="fade-up"
+                             data-aos-delay="70">
+
                         <div class="project-image">
                             <img src="project6.jpg"
-                                 alt="Dishwasher electronic control card"
+                                 alt="Dishwasher electronic control card project"
                                  loading="lazy">
                             <span class="project-category">Electronics</span>
                         </div>
+
                         <div class="project-content">
                             <h3>Dishwasher Control Card</h3>
+
                             <p>
-                                Worked on a dishwasher control-card project focused on
-                                electronic control and the coordination of appliance
-                                operating functions.
+                                An electronics and control project focused on
+                                a dishwasher control card and the coordination
+                                of appliance operating functions.
                             </p>
+
+                            <ul class="project-points">
+                                <li>Explored electronic control of appliance functions.</li>
+                                <li>Focused on control sequencing and system integration.</li>
+                                <li>Connected control logic with practical appliance operation.</li>
+                            </ul>
+
                             <div class="project-tech">
                                 <span>Electronics</span>
                                 <span>Control Systems</span>
-                                <span>Embedded Concepts</span>
+                                <span>Appliances</span>
                             </div>
                         </div>
                     </article>
+
 
                     <!-- Project 7 -->
-                    <article class="project-card" data-category="embedded control" data-aos="fade-up">
+                    <article class="project-card"
+                             data-category="automation"
+                             data-aos="fade-up">
+
                         <div class="project-image">
                             <img src="project7.jpg"
-                                 alt="Adaptive window opening control system"
+                                 alt="Adaptive window opening system"
                                  loading="lazy">
-                            <span class="project-category">Automation</span>
+                            <span class="project-category">Smart Automation</span>
                         </div>
+
                         <div class="project-content">
                             <h3>Adaptive Window Opening System</h3>
+
                             <p>
-                                An adaptive window-opening system concept focused on
-                                automated operation and responsive control based on
-                                system inputs and environmental conditions.
+                                An automated window concept intended to
+                                adapt window operation to system inputs
+                                and environmental conditions.
                             </p>
+
+                            <ul class="project-points">
+                                <li>Combines sensing and actuation concepts.</li>
+                                <li>Explores automatic window operation.</li>
+                                <li>Applies mechatronics principles to everyday environments.</li>
+                            </ul>
+
                             <div class="project-tech">
                                 <span>Automation</span>
-                                <span>Control Logic</span>
-                                <span>System Design</span>
+                                <span>Sensors</span>
+                                <span>Actuators</span>
+                                <span>Mechatronics</span>
                             </div>
                         </div>
                     </article>
+
 
                     <!-- Project 8 -->
-                    <article class="project-card" data-category="embedded control" data-aos="fade-up" data-aos-delay="60">
+                    <article class="project-card"
+                             data-category="automation"
+                             data-aos="fade-up"
+                             data-aos-delay="70">
+
                         <div class="project-image">
                             <img src="project8.jpg"
-                                 alt="Smart home automation system"
+                                 alt="Smart home automation project"
                                  loading="lazy">
-                            <span class="project-category">Smart Systems</span>
+                            <span class="project-category">Home Automation</span>
                         </div>
+
                         <div class="project-content">
-                            <h3>Smart Home Automation</h3>
+                            <h3>Smart Home Automation System</h3>
+
                             <p>
-                                A smart home automation project exploring the integration
-                                of control and electronic systems to support convenient
-                                management of home functions.
+                                A smart-home project exploring the integration
+                                of electronic devices and automated controls
+                                to improve convenience and system management.
                             </p>
+
+                            <ul class="project-points">
+                                <li>Combines electronics and automation concepts.</li>
+                                <li>Focuses on controlling home functions.</li>
+                                <li>Applies embedded-system principles to a practical setting.</li>
+                            </ul>
+
                             <div class="project-tech">
+                                <span>Smart Home</span>
+                                <span>Embedded Systems</span>
                                 <span>Automation</span>
                                 <span>Electronics</span>
-                                <span>Control Systems</span>
                             </div>
                         </div>
                     </article>
@@ -1589,91 +1947,116 @@
             </div>
         </section>
 
-        <!-- Experience & Leadership -->
-        <section class="section experience-section" id="experience">
+
+        <!-- =========================
+             EXPERIENCE
+        ========================== -->
+
+        <section class="experience" id="experience">
             <div class="container">
+
                 <div class="section-heading" data-aos="fade-up">
-                    <span class="eyebrow">Experience</span>
-                    <h2>Experience & Leadership</h2>
+                    <span class="eyebrow">Professional Journey</span>
+                    <h2>Experience & <span class="gold-text">Leadership</span></h2>
                     <p>
-                        Practical engineering exposure, technical collaboration,
-                        and team leadership.
+                        Engineering teamwork, technical development, and
+                        practical exposure to automotive systems.
                     </p>
-                    <div class="gold-line"></div>
                 </div>
 
-                <div class="experience-layout">
-                    <div class="timeline" data-aos="fade-right">
+                <div class="experience-list">
 
-                        <article class="timeline-item">
-                            <div class="timeline-date">October 2025 – July 2026</div>
-                            <h3>Vice Leader & Leader of Electric Systems</h3>
-                            <h4>NCT Racing Team</h4>
+                    <article class="experience-item" data-aos="fade-up">
+                        <span class="experience-dot"></span>
+
+                        <div class="experience-card">
+
+                            <span class="experience-date">
+                                October 2025 – July 2026
+                            </span>
+
+                            <h3>NCT Racing Team</h3>
+                            <h4>Vice Leader & Leader of Electric Systems</h4>
+
                             <p>
-                                Contributed to the team's electric-systems activities
-                                and leadership responsibilities, supporting technical
-                                coordination and collaboration within the racing team.
+                                Contributed to the team's electric systems
+                                activities while taking on technical and
+                                leadership responsibilities.
                             </p>
+
                             <ul>
-                                <li>Supported coordination of electric-systems tasks.</li>
-                                <li>Collaborated with team members on technical activities.</li>
-                                <li>Contributed to organizing work and communicating engineering requirements.</li>
+                                <li>Supported coordination and development of electric-system activities.</li>
+                                <li>Worked with team members on technical problem-solving and system integration.</li>
+                                <li>Contributed to planning and collaboration across the engineering team.</li>
                             </ul>
-                        </article>
 
-                        <article class="timeline-item">
-                            <div class="timeline-date">June 2025</div>
-                            <h3>Automotive Control Trainee</h3>
-                            <h4>Elgeuyshi Motors</h4>
-                            <p>
-                                Gained exposure to automotive control-related work and
-                                practical engineering processes in an automotive environment.
-                            </p>
-                        </article>
-
-                    </div>
-
-                    <div class="experience-image" data-aos="fade-left">
-                        <img src="racing-team.jpg"
-                             alt="Racing team and electric systems activities"
-                             loading="lazy"
-                             onerror="this.style.display='none';">
-
-                        <div class="experience-image-caption">
-                            <h3>Teamwork & Technical Leadership</h3>
-                            <p>
-                                Combining engineering problem-solving with communication,
-                                coordination, and collaborative technical work.
-                            </p>
                         </div>
-                    </div>
+                    </article>
+
+
+                    <article class="experience-item" data-aos="fade-up">
+                        <span class="experience-dot"></span>
+
+                        <div class="experience-card">
+
+                            <span class="experience-date">
+                                June 2025
+                            </span>
+
+                            <h3>Elgeuyshi Motors</h3>
+                            <h4>Automotive Control Trainee</h4>
+
+                            <p>
+                                Gained training exposure to automotive control
+                                systems and related engineering practices.
+                            </p>
+
+                            <ul>
+                                <li>Developed familiarity with automotive control concepts.</li>
+                                <li>Observed practical engineering workflows in an automotive environment.</li>
+                                <li>Strengthened understanding of vehicle systems and technical problem-solving.</li>
+                            </ul>
+
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
 
-        <!-- Contact -->
-        <section class="section" id="contact">
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section class="contact" id="contact">
             <div class="container">
+
                 <div class="section-heading" data-aos="fade-up">
                     <span class="eyebrow">Get In Touch</span>
-                    <h2>Let's Connect</h2>
+                    <h2>Let's Work <span class="gold-text">Together</span></h2>
                     <p>
-                        Have an engineering opportunity, technical project, or
-                        collaboration in mind? Feel free to reach out.
+                        Have a project, opportunity, or engineering idea
+                        you'd like to discuss? Send me a message.
                     </p>
-                    <div class="gold-line"></div>
                 </div>
 
                 <div class="contact-grid">
+
                     <div class="contact-info" data-aos="fade-right">
+
                         <h3>Contact Information</h3>
+
                         <p>
-                            I'm open to connecting about engineering, embedded systems,
-                            automotive control, robotics, and related opportunities.
+                            I'm interested in connecting with people working
+                            in mechatronics, automotive controls, embedded
+                            systems, robotics, and automation.
                         </p>
 
-                        <div class="contact-detail">
-                            <i class="fas fa-envelope"></i>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
                             <div>
                                 <h4>Email</h4>
                                 <a href="mailto:marwansaad672@gmail.com">
@@ -1682,124 +2065,195 @@
                             </div>
                         </div>
 
-                        <div class="contact-detail">
-                            <i class="fas fa-phone"></i>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
                             <div>
                                 <h4>Phone</h4>
-                                <a href="tel:+201015093654">
+                                <a href="tel:01015093654">
                                     01015093654
                                 </a>
                             </div>
                         </div>
 
-                        <div class="contact-detail">
-                            <i class="fas fa-location-dot"></i>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <div>
                                 <h4>Location</h4>
                                 <p>Cairo, Egypt</p>
                             </div>
                         </div>
 
-                        <div class="contact-detail">
-                            <i class="fab fa-linkedin-in"></i>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
                             <div>
                                 <h4>LinkedIn</h4>
                                 <a href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
-                                   target="_blank" rel="noopener noreferrer">
-                                    View LinkedIn Profile
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    View my LinkedIn profile
                                 </a>
                             </div>
                         </div>
+
+                        <div class="contact-socials">
+                            <a href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+
+                            <a href="mailto:marwansaad672@gmail.com"
+                               aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+
                     </div>
 
-                    <form class="contact-form" id="contactForm" data-aos="fade-left">
-                        <h3>Send a Message</h3>
+
+                    <!-- Formspree contact form -->
+
+                    <form
+                        class="contact-form"
+                        id="contactForm"
+                        action="https://formspree.io/f/mjygrjbe"
+                        method="POST"
+                        data-aos="fade-left"
+                    >
 
                         <div class="form-row">
+
                             <div class="form-group">
                                 <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name"
-                                       placeholder="Enter your name" required>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                    autocomplete="name"
+                                    required
+                                >
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Your Email</label>
-                                <input type="email" id="email" name="email"
-                                       placeholder="Enter your email" required>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    autocomplete="email"
+                                    required
+                                >
                             </div>
+
                         </div>
 
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject"
-                                   placeholder="What is this regarding?" required>
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="What is your message about?"
+                                required
+                            >
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message"
-                                      placeholder="Write your message here..." required></textarea>
+                            <label for="message">Your Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Write your message here..."
+                                required
+                            ></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-gold">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send Message</span>
                         </button>
 
-                        <p class="form-note">
-                            This form opens your email application to send the message.
-                        </p>
+                        <div
+                            class="form-status"
+                            id="formStatus"
+                            role="status"
+                            aria-live="polite"
+                        ></div>
+
                     </form>
+
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
         <div class="container footer-content">
+
             <p>
-                &copy; <span id="currentYear"></span> Marwan Ibrahim.
-                All rights reserved.
+                &copy; <span id="currentYear"></span>
+                <strong>Marwan Ibrahim</strong>. All rights reserved.
             </p>
 
-            <div class="footer-socials">
-                <a href="https://www.linkedin.com/in/marwan-ibrahim-3243211a3/"
-                   target="_blank" rel="noopener noreferrer"
-                   aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+            <p>
+                Designed with <span class="gold-text">care</span> and engineering passion.
+            </p>
 
-                <a href="mailto:marwansaad672@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
 
-    <!-- AOS Animation Library -->
+    <!-- Back to top -->
+    <button class="back-to-top"
+            id="backToTop"
+            type="button"
+            aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <!-- AOS animation library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        // Initialize scroll animations
+        /* =========================
+           INITIALIZE ANIMATIONS
+        ========================= */
+
         if (typeof AOS !== "undefined") {
             AOS.init({
-                duration: 750,
+                duration: 800,
                 once: true,
                 offset: 70
             });
         }
 
-        // Mobile navigation menu
+
+        /* =========================
+           MOBILE NAVIGATION
+        ========================= */
+
         const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
+        const navMenu = document.getElementById("navMenu");
+        const navLinks = document.querySelectorAll(".nav-link");
 
         menuToggle.addEventListener("click", function () {
-            const isOpen = navLinks.classList.toggle("open");
+            const isOpen = navMenu.classList.toggle("open");
 
             menuToggle.setAttribute("aria-expanded", String(isOpen));
             menuToggle.setAttribute(
@@ -1808,21 +2262,31 @@
             );
 
             menuToggle.innerHTML = isOpen
-                ? '<i class="fas fa-xmark"></i>'
+                ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
         });
 
-        // Close mobile navigation after selecting a section
-        document.querySelectorAll("#navLinks a").forEach(function (link) {
+        navLinks.forEach(function (link) {
             link.addEventListener("click", function () {
-                navLinks.classList.remove("open");
+                navMenu.classList.remove("open");
+
                 menuToggle.setAttribute("aria-expanded", "false");
                 menuToggle.setAttribute("aria-label", "Open navigation menu");
                 menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+
+                navLinks.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                link.classList.add("active");
             });
         });
 
-        // Project filtering
+
+        /* =========================
+           PROJECT FILTERS
+        ========================= */
+
         const filterButtons = document.querySelectorAll(".filter-btn");
         const projectCards = document.querySelectorAll(".project-card");
 
@@ -1837,57 +2301,164 @@
                 button.classList.add("active");
 
                 projectCards.forEach(function (card) {
-                    const categories = card.dataset.category.split(" ");
+                    const category = card.dataset.category;
                     const shouldShow =
-                        filter === "all" || categories.includes(filter);
+                        filter === "all" || category === filter;
 
                     card.classList.toggle("hidden", !shouldShow);
                 });
 
-                // Refresh animations for visible project cards
                 if (typeof AOS !== "undefined") {
                     AOS.refresh();
                 }
             });
         });
 
-        // Dynamic copyright year
+
+        /* =========================
+           DYNAMIC COPYRIGHT YEAR
+        ========================= */
+
         document.getElementById("currentYear").textContent =
             new Date().getFullYear();
 
-        // Back-to-top button visibility
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+
         const backToTop = document.getElementById("backToTop");
 
         window.addEventListener("scroll", function () {
-            backToTop.classList.toggle("visible", window.scrollY > 400);
+            backToTop.classList.toggle(
+                "visible",
+                window.scrollY > 400
+            );
         });
 
-        // Contact form: prepare an email using the visitor's email application
-        const contactForm = document.getElementById("contactForm");
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
 
-        contactForm.addEventListener("submit", function (event) {
+
+        /* =========================
+           FORMSPREE CONTACT FORM
+        ========================= */
+
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+
+        contactForm.addEventListener("submit", async function (event) {
             event.preventDefault();
 
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const subject = document.getElementById("subject").value.trim();
-            const message = document.getElementById("message").value.trim();
+            if (!contactForm.reportValidity()) {
+                return;
+            }
 
-            const emailSubject = encodeURIComponent(subject);
-            const emailBody = encodeURIComponent(
-                "Name: " + name + "\n" +
-                "Email: " + email + "\n\n" +
-                "Message:\n" + message
-            );
+            const submitButton =
+                contactForm.querySelector('button[type="submit"]');
 
-            const mailtoLink =
-                "mailto:marwansaad672@gmail.com" +
-                "?subject=" + emailSubject +
-                "&body=" + emailBody;
+            const buttonText =
+                submitButton.querySelector("span");
 
-            window.location.href = mailtoLink;
+            const originalButtonText = buttonText.textContent;
+            const originalButtonIcon = submitButton.querySelector("i").className;
+
+            submitButton.disabled = true;
+            buttonText.textContent = "Sending...";
+            submitButton.querySelector("i").className =
+                "fas fa-spinner fa-spin";
+
+            formStatus.className = "form-status";
+            formStatus.textContent = "";
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: "POST",
+                    body: new FormData(contactForm),
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                });
+
+                if (response.ok) {
+                    formStatus.className = "form-status success";
+                    formStatus.textContent =
+                        "Thank you! Your message has been sent successfully.";
+
+                    contactForm.reset();
+                } else {
+                    let errorMessage =
+                        "Your message could not be sent. Please try again.";
+
+                    try {
+                        const result = await response.json();
+
+                        if (result.errors && result.errors.length > 0) {
+                            errorMessage = result.errors
+                                .map(function (error) {
+                                    return error.message;
+                                })
+                                .join(" ");
+                        }
+                    } catch (parseError) {
+                        // Keep the default error message.
+                    }
+
+                    formStatus.className = "form-status error";
+                    formStatus.textContent =
+                        errorMessage +
+                        " You can also email me at marwansaad672@gmail.com.";
+                }
+
+            } catch (error) {
+                formStatus.className = "form-status error";
+                formStatus.textContent =
+                    "A connection problem prevented your message from being sent. " +
+                    "Please try again or email marwansaad672@gmail.com.";
+
+            } finally {
+                submitButton.disabled = false;
+                buttonText.textContent = originalButtonText;
+                submitButton.querySelector("i").className =
+                    originalButtonIcon;
+            }
         });
+
+
+        /* =========================
+           ACTIVE NAV LINK ON SCROLL
+        ========================= */
+
+        const sections = document.querySelectorAll("main section[id]");
+
+        function updateActiveNavigation() {
+            let currentSection = "home";
+            const scrollPosition = window.scrollY + 150;
+
+            sections.forEach(function (section) {
+                if (scrollPosition >= section.offsetTop) {
+                    currentSection = section.id;
+                }
+            });
+
+            navLinks.forEach(function (link) {
+                const target = link.getAttribute("href");
+
+                link.classList.toggle(
+                    "active",
+                    target === "#" + currentSection
+                );
+            });
+        }
+
+        window.addEventListener("scroll", updateActiveNavigation);
+        updateActiveNavigation();
     </script>
 
 </body>
 </html>
+```
