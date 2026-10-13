@@ -1664,36 +1664,39 @@
                         </div>
                     </article>
 
-                    <!-- Project 4: ROS 2 Robot -->
+                    <!-- Project 4: ROS 2 Obstacle Avoidance Robot -->
                     <article class="project-card" data-category="robotics" data-aos="fade-up" data-aos-delay="70">
                         <div class="project-image">
                             <img src="project4.jpg"
                                  alt="ROS 2 and Gazebo obstacle avoidance robot simulation"
                                  loading="lazy">
-                            <span class="project-category">Robotics</span>
+                            <span class="project-category">Robotics &amp; ROS 2</span>
                         </div>
 
                         <div class="project-content">
-                            <h3>Obstacle Avoidance Robot Using ROS 2 and Gazebo</h3>
+                            <h3>ROS 2 Obstacle Avoidance Robot Simulation</h3>
 
                             <p>
-                                A simulated differential-drive robot platform
-                                designed to support robotics development and
-                                future obstacle-avoidance testing.
+                                Designed and simulated a complete differential-drive obstacle avoidance robot for the ROS 2 Jazzy
+                                Modeling &amp; Simulation module. The system combines a custom URDF/Xacro robot, a Gazebo world
+                                inspired by the Edges For Training Academy, LiDAR sensing, and autonomous navigation behavior.
                             </p>
 
                             <ul class="project-points">
-                                <li>Created a custom robot model using URDF.</li>
-                                <li>Configured differential-drive wheels and a caster wheel.</li>
-                                <li>Integrated a LiDAR sensor into a Gazebo environment.</li>
-                                <li>Established a launch workflow for simulation and further algorithm development.</li>
+                                <li>Built a custom URDF/Xacro robot model with differential-drive wheels, a caster wheel, physical properties, and a LiDAR sensor.</li>
+                                <li>Created a Gazebo world with halls, rooms, corridors, and static obstacles that require the robot to change direction.</li>
+                                <li>Configured ROS 2 control, the diff-drive controller, and LiDAR LaserScan publishing on <code>/scan</code>.</li>
+                                <li>Developed an obstacle-avoidance node that analyzes front, left, and right scan sectors and publishes safe velocity commands to <code>/cmd_vel</code>.</li>
+                                <li>Integrated launch files and RViz visualization to test the robot moving forward, stopping, turning toward a clearer path, and continuing safely.</li>
                             </ul>
 
                             <div class="project-tech">
-                                <span>ROS 2</span>
+                                <span>ROS 2 Jazzy</span>
                                 <span>Gazebo</span>
-                                <span>URDF</span>
+                                <span>URDF/Xacro</span>
                                 <span>LiDAR</span>
+                                <span>Python</span>
+                                <span>RViz</span>
                             </div>
                         </div>
                     </article>
